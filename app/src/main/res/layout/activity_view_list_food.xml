@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,16 +9,12 @@
     android:layout_height="wrap_content"
     tools:context=".ViewListFood">
 
-    <androidx.cardview.widget.CardView
+    <ListView
+        android:id="@+id/listfood"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list_food"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="16dp"
-        app:cardUseCompatPadding="true">
+        android:layout_height="match_parent">
 
-    </androidx.cardview.widget.CardView>
+    </ListView>
 
 
-
-</LinearLayout>
+</RelativeLayout>

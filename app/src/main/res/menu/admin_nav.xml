@@ -13,6 +13,10 @@
         android:id="@+id/dashbroads"
         android:title="@string/dashbroads"
         android:icon="@drawable/dashboards" />
+    <item
+        android:id="@+id/setting"
+        android:title="@string/setting"
+        android:icon="@drawable/setting" />
 
 
 </menu>

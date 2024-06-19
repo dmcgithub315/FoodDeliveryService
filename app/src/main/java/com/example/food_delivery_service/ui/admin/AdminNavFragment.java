@@ -33,7 +33,7 @@ public class AdminNavFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_admin, container, false);
+        return inflater.inflate(R.layout.activity_home_admin, container, false);
     }
 
 }
