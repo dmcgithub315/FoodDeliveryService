@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static String BASE_URL = "http://" + getLocalIpAddress() + ":8000/api/";
+    private static String BASE_URL = "http://192.168.2.6:8000/api/";
     private static Retrofit retrofit;
 
     public static Retrofit getApiClient() {
@@ -32,22 +32,5 @@ public class ApiClient {
     }
 
 
-    public static String getLocalIpAddress() {
-        try {
-            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface intf : interfaces) {
-                List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
-                for (InetAddress addr : addrs) {
-                    if (!addr.isLoopbackAddress()) {
-                        String sAddr = addr.getHostAddress();
-                        if (sAddr.indexOf(':') < 0) {
-                            return sAddr;
-                        }
-                    }
-                }
-            }
-        } catch (Exception ex) {
-        }
-        return null;
-    }
+
 }

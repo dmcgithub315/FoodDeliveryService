@@ -1,3 +1,5 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
 
@@ -13,6 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        val baseUrl: String by project
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
