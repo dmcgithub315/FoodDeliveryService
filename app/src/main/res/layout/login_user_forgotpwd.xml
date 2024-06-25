@@ -7,136 +7,107 @@
     android:background="@color/white_white"
     android:padding="30dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/forget_password_back_btn"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:onClick="callBackScreenFromForgetPassword"
+        android:padding="5dp"
+        android:src="@drawable/general_back_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/forget_password_icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+
+        android:src="@drawable/forget_password_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/forget_password_back_btn" />
 
-        <ImageView
-            android:id="@+id/forget_password_back_btn"
-            android:layout_width="57dp"
-            android:layout_height="46dp"
-            android:onClick="callBackScreenFromForgetPassword"
-            android:padding="5dp"
-            android:src="@drawable/general_back_icon" />
+    <TextView
+        android:id="@+id/forget_password_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Forgot\nPassword"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/black_black"
+        android:textSize="30sp"
 
-        <ImageView
-            android:id="@+id/forget_password_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password_icon" />
 
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+    <TextView
+        android:id="@+id/forget_password_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
 
-            android:src="@drawable/forget_password_icon"
-            app:layout_constraintTop_toBottomOf="@+id/forget_password_back_btn"/>
+        android:layout_marginTop="30dp"
 
-        <TextView
-            android:id="@+id/forget_password_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="36dp"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="Forget\nPassword"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/black_black"
-            android:textSize="30sp"
+        android:gravity="center"
+        android:text="@string/forget_password_detail"
+        android:textAlignment="center"
+        android:textColor="@color/black_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password_title" />
 
-            app:layout_constraintTop_toBottomOf="@+id/forget_password_icon" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/forget_password_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
 
-        <TextView
-            android:id="@+id/forget_password_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+        android:hint="Email"
+        android:textColorHint="@color/black_black"
 
-            android:gravity="center"
+        app:boxBackgroundColor="@color/white_white"
+        app:boxStrokeColor="@color/black_black"
+        app:boxStrokeWidthFocused="2dp"
 
-            android:text="@string/forget_password_detail"
-            android:textAlignment="center"
-            android:textColor="@color/black_black"
-            android:textSize="16sp"/>
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black_black"
+        app:hintTextColor="@color/black_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password_description"
+        app:startIconDrawable="@android:drawable/sym_action_email"
+        app:startIconTint="@color/black_black">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/forget_password_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black_black"
+            android:textCursorDrawable="@null" />
 
-            android:hint="Email"
-            android:textColorHint="@color/black_black"
+    </com.google.android.material.textfield.TextInputLayout>
 
-            app:boxBackgroundColor="@color/white_white"
-            app:boxStrokeColor="@color/black_black"
-            app:boxStrokeWidthFocused="2dp"
+    <Button
+        android:id="@+id/forget_password_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
 
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black_black"
-            app:hintTextColor="@color/black_black"
-            app:startIconDrawable="@android:drawable/sym_action_email"
-            app:startIconTint="@color/black_black">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black_black"
-                android:textCursorDrawable="@null" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/forget_password_email_code"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:hint="Enter the code sent to your email"
-            android:textColorHint="@color/black_black"
-
-            app:boxBackgroundColor="@color/white_white"
-            app:boxStrokeColor="@color/black_black"
-            app:boxStrokeWidthFocused="2dp"
-
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black_black"
-            app:hintTextColor="@color/black_black"
-            app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
-            app:startIconTint="@color/black_black">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                android:textColor="@color/black_black"
-                android:textCursorDrawable="@null" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/forget_password_next_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-
-            android:onClick="verifyEmail"
-
-            android:text="Next"
-            android:textColor="@color/black_black"/>
-
-    </LinearLayout>
+        android:text="Next"
+        android:textColor="@color/black_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

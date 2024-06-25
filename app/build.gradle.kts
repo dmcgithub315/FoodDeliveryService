@@ -1,8 +1,5 @@
-
-
 plugins {
     alias(libs.plugins.android.application)
-
 }
 
 android {
@@ -36,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation("io.github.chaosleung:pinview:1.4.4")
+    implementation("com.hbb20:ccp:2.6.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
