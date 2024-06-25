@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black_black">#FF000000</color>
+    <color name="white_white">#FFFFFFFF</color>
+
+    <color name="pff_red_deep">#982121</color>
+    <color name="pff_red_orange">#ff611d</color>
+    <color name="pff_red_red">#e32929</color>
+    <color name="pff_red_yellow">#ffb80e</color>
+    <color name="pff_red_brown">#813531</color>
+    <color name="pff_red_cream">#ede5cc</color>
+
 </resources>
