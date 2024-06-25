@@ -14,6 +14,7 @@ import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.LoginRequest;
 import com.example.food_delivery_service.api.model.dto.LoginResponse;
+import com.example.food_delivery_service.auth.SessionManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,11 +49,16 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.isSuccessful()) {
-                            // Login successful, navigate to LogoutActivity
+                            LoginResponse loginResponse = response.body();
+                            if (loginResponse != null) {
+                                String token = loginResponse.getToken();
+                                SessionManager sessionManager = new SessionManager(LoginActivity.this);
+                                sessionManager.saveAuthToken(token);
+                            }
+
                             Intent intent = new Intent(LoginActivity.this, LogoutActivity.class);
                             startActivity(intent);
                         } else {
-                            // Login failed
                             Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
                         }
                     }
