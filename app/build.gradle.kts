@@ -12,7 +12,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        val baseUrl: String by project
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -33,7 +32,11 @@ android {
     buildToolsVersion = "34.0.0"
 }
 
+
+
+
 dependencies {
+
     implementation("io.github.chaosleung:pinview:1.4.4")
     implementation("com.hbb20:ccp:2.6.0")
     implementation(libs.appcompat)
@@ -51,6 +54,5 @@ dependencies {
     annotationProcessor ("org.projectlombok:lombok:1.18.32")
     implementation(kotlin("script-runtime"))
     implementation("androidx.constraintlayout:constraintlayout:2.2.0-alpha13")
-    // To use constraintlayout in compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13")
 }
