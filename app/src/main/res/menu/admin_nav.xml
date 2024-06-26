@@ -18,5 +18,4 @@
         android:title="@string/setting"
         android:icon="@drawable/setting" />
 
-
 </menu>
