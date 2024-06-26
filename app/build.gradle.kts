@@ -40,6 +40,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -48,4 +50,7 @@ dependencies {
     compileOnly ("org.projectlombok:lombok:1.18.32")
     annotationProcessor ("org.projectlombok:lombok:1.18.32")
     implementation(kotlin("script-runtime"))
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0-alpha13")
+    // To use constraintlayout in compose
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13")
 }
