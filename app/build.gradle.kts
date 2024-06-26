@@ -3,6 +3,11 @@ plugins {
 }
 
 android {
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("app/src/main/AndroidManifest.xml")
+        }
+    }
     namespace = "com.example.food_delivery_service"
     compileSdk = 34
 
@@ -25,6 +30,8 @@ android {
             )
         }
     }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
