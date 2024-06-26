@@ -28,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_user_main);
 
         // Get the email and password from the input fields
-        EditText emailField = findViewById(R.id.profile_user_oldpwd);
-        EditText passwordField = findViewById(R.id.profile_user_newpwd);
-        Button signInButton = findViewById(R.id.button_signin);
+        EditText emailField = findViewById(R.id.email_login);
+        EditText passwordField = findViewById(R.id.password);
+        Button signInButton = findViewById(R.id.login_user_main_buttonLogin);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
