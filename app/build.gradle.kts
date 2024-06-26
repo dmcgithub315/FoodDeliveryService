@@ -11,6 +11,7 @@ android {
     namespace = "com.example.food_delivery_service"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.food_delivery_service"
         minSdk = 24
@@ -62,4 +63,5 @@ dependencies {
     implementation(kotlin("script-runtime"))
     implementation("androidx.constraintlayout:constraintlayout:2.2.0-alpha13")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13")
+    implementation("androidx.appcompat:appcompat:1.7.0")
 }
