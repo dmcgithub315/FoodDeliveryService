@@ -62,7 +62,6 @@
             android:id="@+id/country_code_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/black_border"
             android:padding="7dp"
             app:ccp_defaultNameCode="VN"
             app:ccp_defaultLanguage="VIETNAMESE"
