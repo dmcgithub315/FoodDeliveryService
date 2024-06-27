@@ -1,16 +1,17 @@
+import org.apache.tools.ant.util.JavaEnvUtils.VERSION_1_8
+
+val sourceCompatibility by extra(VERSION_1_8)
 android {
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     compileSdk = 34
     buildToolsVersion = "34.0.0"
     namespace = "com.example.food_delivery_service"
-    sourceSets {
-        getByName("main") {
-            manifest.srcFile("app/src/main/AndroidManifest.xml")
-        }
-    }
+
+
+
 
 }
 // Top-level build file where you can add configuration options common to all sub-projects/modules.

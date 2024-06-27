@@ -1,4 +1,4 @@
-package com.example.food_delivery_service.activity;
+package com.example.food_delivery_service.activity.common;
 
 import android.os.Bundle;
 

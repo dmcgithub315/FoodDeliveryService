@@ -1,4 +1,4 @@
-package com.example.food_delivery_service.ui.admin;
+package com.example.food_delivery_service.activity.admin;
 
 import androidx.lifecycle.ViewModelProvider;
 
