@@ -7,15 +7,13 @@ plugins {
 android {
     sourceSets {
         getByName("main") {
-            manifest.srcFile("app/src/main/AndroidManifest.xml")
+            manifest.srcFile("/src/main/AndroidManifest.xml")
         }
     }
 
-    sourceSets {
-        getByName("main") {
-            manifest.srcFile("app/src/main/AndroidManifest.xml")
-        }
-    }
+
+
+
     namespace = "com.example.food_delivery_service"
     compileSdk = 34
     buildToolsVersion = "34.0.0"
@@ -47,6 +45,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildToolsVersion = "34.0.0"
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 
@@ -62,6 +63,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
