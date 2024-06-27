@@ -1,3 +1,5 @@
+import org.apache.tools.ant.util.JavaEnvUtils.VERSION_1_8
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -8,13 +10,20 @@ android {
             manifest.srcFile("app/src/main/AndroidManifest.xml")
         }
     }
+
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("app/src/main/AndroidManifest.xml")
+        }
+    }
     namespace = "com.example.food_delivery_service"
     compileSdk = 34
+    buildToolsVersion = "34.0.0"
 
 
     defaultConfig {
         applicationId = "com.example.food_delivery_service"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -34,8 +43,8 @@ android {
 
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildToolsVersion = "34.0.0"
 }

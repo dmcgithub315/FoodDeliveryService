@@ -1,4 +1,4 @@
-package com.example.food_delivery_service;
+package com.example.food_delivery_service.activity.admin;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.food_delivery_service.R;
 
 import java.util.ArrayList;
 import java.util.List;

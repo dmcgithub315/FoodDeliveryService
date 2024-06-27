@@ -6,129 +6,130 @@
     android:layout_height="match_parent"
     android:padding="30dp">
 
-    <ImageView
-        android:id="@+id/signup_back_button"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
-        android:padding="5dp"
-        android:src="@drawable/general_back_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/signup_back_button"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:padding="5dp"-->
+<!--        android:src="@drawable/general_back_icon"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <RelativeLayout
-        android:id="@+id/register_screen1_signup_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_back_button">
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/register_screen1_signup_title"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_back_button">-->
 
-        <TextView
-            android:id="@+id/signup_title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Create \nAccount"
-            android:textAllCaps="true"
-            android:textColor="@color/black_black"
-            android:textSize="40sp"/>
+<!--        <TextView-->
+<!--            android:id="@+id/signup_title_text"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:text="Create \nAccount"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textColor="@color/black_black"-->
+<!--            android:textSize="40sp"/>-->
 
-        <TextView
-            android:id="@+id/signup_slide_text"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/white_circle"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="3/3"
-            android:textAlignment="center"
-            android:textColor="@color/black_black"
-            android:textSize="30sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/signup_slide_text"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@drawable/white_circle"-->
+<!--            android:gravity="center"-->
+<!--            android:padding="10dp"-->
+<!--            android:text="3/3"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@color/black_black"-->
+<!--            android:textSize="30sp" />-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/register_screen1_signup_title">
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/register_screen1_signup_title">-->
 
-        <com.hbb20.CountryCodePicker
-            android:id="@+id/country_code_picker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="7dp"
-            app:ccp_defaultNameCode="VN"
-            app:ccp_defaultLanguage="VIETNAMESE"
-            app:ccp_autoDetectCountry="true"
-            app:ccp_showFlag="true"
-            app:ccp_showFullName="true"
-            app:ccp_showNameCode="true" />
+<!--        <com.hbb20.CountryCodePicker-->
+<!--            android:id="@+id/country_code_picker"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/black"-->
+<!--            android:padding="7dp"-->
+<!--            app:ccp_defaultNameCode="VN"-->
+<!--            app:ccp_defaultLanguage="VIETNAMESE"-->
+<!--            app:ccp_autoDetectCountry="true"-->
+<!--            app:ccp_showFlag="true"-->
+<!--            app:ccp_showFullName="true"-->
+<!--            app:ccp_showNameCode="true" />-->
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_phone_number"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/country_code_picker"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/signup_phone_number"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/country_code_picker"-->
 
-            android:hint="Phone Number"
-            android:textColorHint="@color/black_black"
+<!--            android:hint="Phone Number"-->
+<!--            android:textColorHint="@color/black_black"-->
 
-            app:boxStrokeColor="@color/black_black"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black_black"
-            app:hintTextColor="@color/black_black"
-            app:startIconDrawable="@drawable/baseline_phone_24"
-            app:startIconTint="@color/black_black">
+<!--            app:boxStrokeColor="@color/black_black"-->
+<!--            app:boxStrokeWidthFocused="2dp"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:endIconTint="@color/black_black"-->
+<!--            app:hintTextColor="@color/black_black"-->
+<!--            app:startIconDrawable="@drawable/baseline_phone_24"-->
+<!--            app:startIconTint="@color/black_black">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="phone"
-                android:hint="Phone Number"
-                android:textColor="@color/black_black"
-                android:textCursorDrawable="@null" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:inputType="phone"-->
+<!--                android:hint="Phone Number"-->
+<!--                android:textColor="@color/black_black"-->
+<!--                android:textCursorDrawable="@null" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
-    <Button
-        android:id="@+id/signup_submit_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/black_black"
-        android:elevation="5dp"
+<!--    <Button-->
+<!--        android:id="@+id/signup_submit_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:background="@color/black_black"-->
+<!--        android:elevation="5dp"-->
 
-        android:text="Submit"
-        android:textColor="@color/white_white"
+<!--        android:text="Submit"-->
+<!--        android:textColor="@color/white_white"-->
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />-->
 
-    <Button
-        android:id="@+id/signup_login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#00000000"
-        android:elevation="5dp"
+<!--    <Button-->
+<!--        android:id="@+id/signup_login_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:background="#00000000"-->
+<!--        android:elevation="5dp"-->
 
-        android:text="Login"
-        android:textColor="@color/black_black"
+<!--        android:text="Login"-->
+<!--        android:textColor="@color/black_black"-->
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_submit_button" />
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/signup_submit_button" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
