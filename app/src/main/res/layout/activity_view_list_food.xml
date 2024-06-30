@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ViewListFood">
+    tools:context=".activity.common.ViewListFood">
 
     <ListView
         android:id="@+id/listfood"

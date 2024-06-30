@@ -5,7 +5,7 @@
     android:id="@+id/homeadmin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.common.UpdateFood">
+    tools:context=".activity.user.UpdateFood">
 
     <ImageView
         android:id="@+id/imageView2"

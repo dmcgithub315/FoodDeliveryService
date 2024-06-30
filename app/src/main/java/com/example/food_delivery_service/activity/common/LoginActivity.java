@@ -1,4 +1,4 @@
-package com.example.food_delivery_service.activity;
+package com.example.food_delivery_service.activity.common;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.food_delivery_service.R;
-import com.example.food_delivery_service.activity.common.LogoutActivity;
+import com.example.food_delivery_service.activity.user.LogoutActivity;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
-import com.example.food_delivery_service.api.model.dto.LoginRequest;
-import com.example.food_delivery_service.api.model.dto.LoginResponse;
+import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
+import com.example.food_delivery_service.api.model.dto.user.LoginResponse;
 import com.example.food_delivery_service.auth.SessionManager;
 
 import retrofit2.Call;
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                                 sessionManager.saveAuthToken(token);
                             }
 
-                            Intent intent = new Intent(LoginActivity.this, LogoutActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ViewListFood.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
