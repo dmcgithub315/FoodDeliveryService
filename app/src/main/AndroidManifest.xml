@@ -20,13 +20,16 @@
             android:name=".ViewListFood"
             android:exported="false" />
         <activity
+            android:name=".HomeAdmin"
+            android:exported="false" />
+        <activity
             android:name=".UpdateFood"
             android:exported="false" />
         <activity
             android:name=".CreateNewProduct"
             android:exported="false" />
         <activity
-            android:name=".HomeAdmin"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
