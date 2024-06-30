@@ -5,7 +5,7 @@
     android:id="@+id/homeadmin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.common.CreateNewProduct">
+    tools:context=".activity.admin.CreateNewProduct">
 
     <TextView
         android:id="@+id/textView"

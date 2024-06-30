@@ -1,4 +1,4 @@
-package com.example.food_delivery_service.api.model.dto;
+package com.example.food_delivery_service.api.model.dto.user;
 
 import lombok.Data;
 

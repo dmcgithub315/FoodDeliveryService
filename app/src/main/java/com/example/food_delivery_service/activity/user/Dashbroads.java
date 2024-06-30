@@ -1,4 +1,4 @@
-package com.example.food_delivery_service;
+package com.example.food_delivery_service.activity.user;
 
 import android.os.Bundle;
 
@@ -15,7 +15,9 @@ import com.example.food_delivery_service.Model.FoodItem;
 
 import java.util.ArrayList;
 
-public class ViewListFood extends AppCompatActivity {
+import com.example.food_delivery_service.R;
+
+public class Dashbroads extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ListFoodAdapter adapter;
@@ -25,7 +27,7 @@ public class ViewListFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_view_list_food);
+        setContentView(R.layout.activity_dashbroads);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
