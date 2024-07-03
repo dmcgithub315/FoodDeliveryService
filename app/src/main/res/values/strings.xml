@@ -7,4 +7,5 @@
     <string name="edit_food">Edit</string>
     <string name="delete_food">Delete</string>
     <string name="setting">Setting</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
