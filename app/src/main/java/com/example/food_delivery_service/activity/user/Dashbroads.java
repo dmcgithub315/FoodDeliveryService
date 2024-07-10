@@ -10,12 +10,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.food_delivery_service.Adapter.ListFoodAdapter;
-import com.example.food_delivery_service.Model.FoodItem;
 
 import java.util.ArrayList;
 
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.adapter.ListFoodAdapter;
+import com.example.food_delivery_service.api.model.entity.Product;
 
 public class Dashbroads extends AppCompatActivity {
 
@@ -34,12 +34,10 @@ public class Dashbroads extends AppCompatActivity {
             return insets;
         });
 
-        ArrayList<FoodItem> foodList = new ArrayList<>();
-        foodList.add(new FoodItem(R.drawable.food1, "Food Title 1"));
-        foodList.add(new FoodItem(R.drawable.food1, "Food Title 2"));
-        // Add more items...
+        ArrayList<Product> foodList = new ArrayList<>();
 
-        recyclerView = findViewById(R.id.recycler_view);
+
+//        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         adapter = new ListFoodAdapter(foodList);

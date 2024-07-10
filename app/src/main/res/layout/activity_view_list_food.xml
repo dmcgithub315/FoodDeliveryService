@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".activity.common.ViewListFood">
-
-    <ListView
-        android:id="@+id/listfood"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="14dp"
+            android:src="@drawable/baseline_arrow_back_24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Food"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:iconifiedByDefault="false"
+                android:searchHintIcon="@null"
+                android:queryHint="Search ...."
+                android:focusable="false"
+                android:closeIcon="@drawable/baseline_close_24"
+                android:searchIcon="@drawable/baseline_search_24"
+                android:background="@drawable/search_bkg"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/search"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </ScrollView>
 
-    </ListView>
-
-
-</RelativeLayout>
+</LinearLayout>

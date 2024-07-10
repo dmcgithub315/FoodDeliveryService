@@ -1,4 +1,4 @@
-package com.example.food_delivery_service.Adapter;
+package com.example.food_delivery_service.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,14 +8,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.food_delivery_service.Model.FoodItem;
+import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.api.model.entity.Product;
 
 import java.util.List;
 
 public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodViewHolder> {
 
-    private List<FoodItem> foodList;
+    private List<Product> productList;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -40,34 +41,22 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
             iconEdit = itemView.findViewById(R.id.edit_icon);
             iconDelete = itemView.findViewById(R.id.delete_icon);
 
-            iconEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onEditClick(position);
-                        }
-                    }
+            iconEdit.setOnClickListener(v -> {
+                if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
+                    listener.onEditClick(getAdapterPosition());
                 }
             });
 
-            iconDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onDeleteClick(position);
-                        }
-                    }
+            iconDelete.setOnClickListener(v -> {
+                if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
+                    listener.onDeleteClick(getAdapterPosition());
                 }
             });
         }
     }
 
-    public ListFoodAdapter(List<FoodItem> foodList) {
-        this.foodList = foodList;
+    public ListFoodAdapter(List<Product> productList) {
+        this.productList = productList;
     }
 
     @Override
@@ -78,13 +67,23 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
 
     @Override
     public void onBindViewHolder(FoodViewHolder holder, int position) {
-        FoodItem currentItem = foodList.get(position);
-        holder.imageView.setImageResource(currentItem.getImageResource());
-        holder.textViewTitle.setText(currentItem.getTitle());
+        Product currentItem = productList.get(position);
+        Glide.with(holder.imageView.getContext())
+                .load(currentItem.getImage())
+                .placeholder(R.drawable.food1)
+                .error(R.drawable.baseline_about_us_24)
+                .into(holder.imageView);
+        holder.textViewTitle.setText(currentItem.getName());
     }
 
     @Override
     public int getItemCount() {
-        return foodList.size();
+        return productList.size();
+    }
+
+    public void updateData(List<Product> newProductList) {
+        productList.clear();
+        productList.addAll(newProductList);
+        notifyDataSetChanged();
     }
 }
