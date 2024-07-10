@@ -39,7 +39,7 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".activity.common.ViewListFood"
+            android:name=".activity.admin.ViewListFood"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

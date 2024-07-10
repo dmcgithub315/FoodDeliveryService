@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @POST("login")
@@ -17,5 +18,10 @@ public interface ApiService {
     @GET("get-all")
     Call<ApiResponse<ProductsResponse>> getAllProducts();
 
+    @GET("product/search")
+    Call<ApiResponse<ProductsResponse>> searchProducts(@Query("k") String name);
+
+    @GET("product/details")
+    Call<ApiResponse<ProductsResponse>> getProductDetails(@Query("id") int id);
 
 }
