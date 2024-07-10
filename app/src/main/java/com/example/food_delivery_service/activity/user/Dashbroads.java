@@ -1,5 +1,6 @@
 package com.example.food_delivery_service.activity.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.activity.admin.UpdateFood;
+import com.example.food_delivery_service.activity.admin.ViewListFood;
 import com.example.food_delivery_service.adapter.ListFoodAdapter;
 import com.example.food_delivery_service.api.model.entity.Product;
 
@@ -48,13 +51,13 @@ public class Dashbroads extends AppCompatActivity {
         adapter.setOnItemClickListener(new ListFoodAdapter.OnItemClickListener() {
             @Override
             public void onEditClick(int position) {
-                // Handle edit click
+
             }
 
             @Override
             public void onDeleteClick(int position) {
-                // Handle delete click
             }
+
         });
     }
 }

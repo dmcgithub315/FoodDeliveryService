@@ -4,6 +4,7 @@ import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginResponse;
+import com.example.food_delivery_service.api.model.entity.Product;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -22,6 +23,6 @@ public interface ApiService {
     Call<ApiResponse<ProductsResponse>> searchProducts(@Query("k") String name);
 
     @GET("product/details")
-    Call<ApiResponse<ProductsResponse>> getProductDetails(@Query("id") int id);
+    Call<ApiResponse<Product>> getProductDetails(@Query("id") int id);
 
 }

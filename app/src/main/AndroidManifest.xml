@@ -25,7 +25,7 @@
             android:name=".activity.admin.HomeAdmin"
             android:exported="false" />
         <activity
-            android:name=".activity.user.UpdateFood"
+            android:name=".activity.admin.UpdateFood"
             android:exported="false" />
         <activity
             android:name=".activity.admin.CreateNewProduct"

@@ -10,17 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.api.model.SelectedProduct;
 import com.example.food_delivery_service.api.model.entity.Product;
 
 import java.util.List;
 
 public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodViewHolder> {
 
-    private List<Product> productList;
+    private static List<Product> productList;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        void onEditClick(int position);
+        void onEditClick(int foodId);
         void onDeleteClick(int position);
     }
 
@@ -43,7 +44,9 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
 
             iconEdit.setOnClickListener(v -> {
                 if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
-                    listener.onEditClick(getAdapterPosition());
+                    Product currentItem = productList.get(getAdapterPosition());
+                    SelectedProduct.selectedProductId = currentItem.getId(); // Set selected product ID
+                    listener.onEditClick(currentItem.getId());
                 }
             });
 

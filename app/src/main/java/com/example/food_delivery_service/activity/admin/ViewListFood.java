@@ -1,10 +1,13 @@
 package com.example.food_delivery_service.activity.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +46,20 @@ public class ViewListFood extends AppCompatActivity {
         setupSearchView();
 
         getAllProducts();
+
+        productAdapter.setOnItemClickListener(new ListFoodAdapter.OnItemClickListener() {
+            @Override
+            public void onEditClick(int foodId) {
+                Intent intent = new Intent(ViewListFood.this, UpdateFood.class);
+                intent.putExtra("foodId", foodId);
+                startActivity(intent);            }
+
+            @Override
+            public void onDeleteClick(int position) {
+                // Handle delete click if needed
+            }
+
+        });
     }
 
     private void setupSearchView() {
@@ -77,7 +94,11 @@ public class ViewListFood extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse<ProductsResponse>> call, Throwable t) {
-                // Log error or show a message to the user indicating the search failed
+                // Show an error message to the user
+                Toast.makeText(ViewListFood.this, "Failed to search products", Toast.LENGTH_SHORT).show();
+
+
+
             }
         });
     }
@@ -97,8 +118,10 @@ public class ViewListFood extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse<ProductsResponse>> call, Throwable t) {
-                // Handle failure, possibly by showing an error message to the user
+                Toast.makeText(ViewListFood.this, "Failed to get products", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+
 }
