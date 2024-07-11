@@ -44,7 +44,7 @@
             android:background="@drawable/white_circle"
             android:gravity="center"
             android:padding="10dp"
-            android:text="2/3"
+            android:text="2/2"
             android:textAlignment="center"
             android:textColor="@color/black_black"
             android:textSize="30sp"/>
@@ -56,44 +56,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_screen1_signup_title">
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose Gender"
-            android:textColor="@color/black_black"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/register_screen1_signup_title">
 
-        <RadioGroup
-            android:id="@+id/radio_group"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/male"
-                android:layout_width="wrap_content"
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/country_code_picker"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male" />
 
-            <RadioButton
-                android:id="@+id/female"
-                android:layout_width="wrap_content"
+                android:padding="7dp"
+                app:ccp_defaultNameCode="VN"
+                app:ccp_defaultLanguage="VIETNAMESE"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_showFlag="true"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="true" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_phone_number"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Female" />
+                android:layout_below="@id/country_code_picker"
 
-            <RadioButton
-                android:id="@+id/others"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Other" />
-        </RadioGroup>
+                android:hint="Phone Number"
+                android:textColorHint="@color/black_black"
 
+                app:boxStrokeColor="@color/black_black"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black_black"
+                app:hintTextColor="@color/black_black"
+                app:startIconDrawable="@drawable/baseline_phone_24"
+                app:startIconTint="@color/black_black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:hint="Phone Number"
+                    android:textColor="@color/black_black"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
