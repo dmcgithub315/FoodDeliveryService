@@ -65,6 +65,7 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/register_screen1_signup_title">
 
@@ -80,7 +81,6 @@
                 app:ccp_showFlag="true"
                 app:ccp_showFullName="true"
                 app:ccp_showNameCode="true" />
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/signup_phone_number"
