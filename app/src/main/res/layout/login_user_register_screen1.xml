@@ -66,11 +66,36 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_fullname"
+            android:id="@+id/signup_firstname"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
+            android:hint="First Name"
+            android:textColorHint="@color/black_black"
+            app:boxStrokeColor="@color/black_black"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black_black"
+            app:hintTextColor="@color/black_black"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:startIconTint="@color/black_black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:textColor="@color/black_black"
+                android:textCursorDrawable="@null" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_lastname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
             android:textColorHint="@color/black_black"
             app:boxStrokeColor="@color/black_black"
             app:boxStrokeWidthFocused="2dp"
