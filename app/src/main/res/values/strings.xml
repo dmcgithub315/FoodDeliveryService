@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Food Delivery Service</string>
-    <string name="Header_Welcome">Welcome back,</string>
-    <string name="Header_welcome_subtext">Glad to meet you again!</string>
-    <string name="forget_password_detail">Please provide the email registered to your account.</string>
+    <string name="admin">Home</string>
+    <string name="view_list_food">View List Food</string>
+    <string name="dashbroads">Dashbroads</string>
+    <string name="add_food">Add Food</string>
+    <string name="edit_food">Edit</string>
+    <string name="delete_food">Delete</string>
+    <string name="setting">Setting</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
