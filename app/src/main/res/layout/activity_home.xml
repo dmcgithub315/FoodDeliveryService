@@ -205,7 +205,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.812"
-                            app:srcCompat="@drawable/meal1" />
+                             />
 
                         <TextView
                             android:id="@+id/textView"
@@ -240,7 +240,6 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.75"
-                            app:srcCompat="@drawable/meal3"
                             tools:layout_editor_absoluteX="71dp"
                             tools:layout_editor_absoluteY="-24dp" />
 
@@ -284,7 +283,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.75"
-                            app:srcCompat="@drawable/meal4" />
+                             />
 
                         <TextView
                             android:id="@+id/textView3"
@@ -319,7 +318,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.812"
-                            app:srcCompat="@drawable/meal2" />
+                             />
 
                         <TextView
                             android:id="@+id/textView4"
