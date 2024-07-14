@@ -71,7 +71,7 @@
                 android:background="@drawable/round_back_secondary_100"
                 android:text="@string/edit_profile"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/white_white"
                 android:paddingEnd="30dp"/>
             <LinearLayout
                 android:background="@drawable/round_back_white_10_20"

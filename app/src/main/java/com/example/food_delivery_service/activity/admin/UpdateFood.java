@@ -44,7 +44,7 @@ public class UpdateFood extends AppCompatActivity {
 
         // Initialize UI components
         editTextName = findViewById(R.id.editTextText2);
-        editTextQuality = findViewById(R.id.editTextNumber);
+//        editTextQuality = findViewById(R.id.editTextNumber);
         editTextPrice = findViewById(R.id.editTextNumber2);
         editTextDetail = findViewById(R.id.editTextTextMultiLine);
         buttonSave = findViewById(R.id.button4);
