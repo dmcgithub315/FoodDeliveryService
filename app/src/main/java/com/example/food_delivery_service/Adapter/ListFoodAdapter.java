@@ -1,13 +1,20 @@
 package com.example.food_delivery_service.Adapter;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.activity.common.FoodDetailActivity;
 import com.example.food_delivery_service.api.model.SelectedProduct;
 import com.example.food_delivery_service.api.model.entity.Product;
 import java.text.NumberFormat;
@@ -18,6 +25,8 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
 
     private List<Product> productList;
     private OnItemClickListener listener;
+
+    // Kiểm tra và yêu cầu quyền truy cập tệp
 
     public void clearData() {
         productList.clear();
@@ -88,6 +97,10 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
                     Product currentItem = productList.get(getAdapterPosition());
                     SelectedProduct.selectedProductId = currentItem.getId();
                     listener.onImageClick(currentItem.getId());
+
+                    Intent intent = new Intent(v.getContext(), FoodDetailActivity.class);
+                    intent.putExtra("PRODUCT_ID", currentItem.getId());
+                    v.getContext().startActivity(intent);
                 }
             });
         }
