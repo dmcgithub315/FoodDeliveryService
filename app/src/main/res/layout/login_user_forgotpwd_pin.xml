@@ -6,36 +6,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/login_background">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:id="@+id/icon_escape_x"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/if_whitebg"
         android:padding="5dp"
         android:src="@drawable/general_close_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/black_black" />
+        app:tint="@color/black_black"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView_OTPCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_gravity="center"
         android:includeFontPadding="false"
         android:text="OTP Code"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/black_black"
-
         android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.174" />
 
     <TextView
         android:id="@+id/textView_Verification"
@@ -50,6 +53,7 @@
         android:textAllCaps="true"
         android:textColor="@color/black_black"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_OTPCode" />
@@ -60,7 +64,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-
         android:includeFontPadding="false"
         android:text="Enter the code sent to your email to continue."
         android:textAlignment="center"
@@ -75,31 +78,31 @@
         style="@style/PinWidget.PinView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="42dp"
         android:inputType="number"
         android:itemBackground="@color/white_white"
         android:textColor="@color/black_black"
         app:itemCount="4"
         app:itemHeight="50dp"
         app:itemRadius="5dp"
-        app:itemSpacing="10dp"
+        app:itemSpacing="18dp"
         app:itemWidth="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otp_description_text"
         app:lineColor="@color/black_black"
-        app:viewType="rectangle" />
+        app:viewType="rectangle"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
     <Button
         android:id="@+id/login_user_forgotpwd_pin_submit"
+        android:background="@drawable/background_black"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-
+        android:layout_marginTop="50dp"
         android:text="Verify"
-        android:textColor="@color/black_black"
-
+        android:textColor="@color/white_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pinView_OTP" />
@@ -109,6 +112,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,14 +122,16 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Didn't receive your code? " />
+            android:text="Didn't receive your code? "
+            android:textColor="@color/black_black"/>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Resend."
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/gray"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

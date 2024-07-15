@@ -4,29 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_white"
+    android:background="@drawable/login_background"
     android:padding="30dp">
 
     <ImageView
         android:id="@+id/forget_password_back_btn"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
-        android:onClick="callBackScreenFromForgetPassword"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
         android:padding="5dp"
         android:src="@drawable/general_back_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/background_white"/>
 
     <ImageView
         android:id="@+id/forget_password_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        android:layout_width="128dp"
+        android:layout_height="111dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-
+        android:layout_marginTop="74dp"
         android:src="@drawable/forget_password_icon"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forget_password_back_btn" />
 
@@ -35,12 +34,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="Forgot\nPassword"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textStyle="bold"
         android:textColor="@color/black_black"
         android:textSize="30sp"
 
@@ -57,10 +57,11 @@
         android:layout_marginTop="30dp"
 
         android:gravity="center"
-        android:text="@string/forget_password_detail"
+        android:text="Enter Your Email Here"
         android:textAlignment="center"
         android:textColor="@color/black_black"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forget_password_title" />
@@ -70,15 +71,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-
-        android:hint="Email"
-        android:textColorHint="@color/black_black"
-
+        android:layout_marginTop="30dp"
         app:boxBackgroundColor="@color/white_white"
         app:boxStrokeColor="@color/black_black"
         app:boxStrokeWidthFocused="2dp"
-
         app:endIconMode="clear_text"
         app:endIconTint="@color/black_black"
         app:hintTextColor="@color/black_black"
@@ -90,22 +86,26 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/if_whitebg"
+            android:hint="Email"
             android:inputType="textEmailAddress"
+            android:padding="10dp"
             android:textColor="@color/black_black"
+            android:textColorHint="@color/lightgray"
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/forget_password_next_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="53dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_black"
         android:text="Next"
-        android:textColor="@color/black_black"
+        android:textColor="@color/white_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forget_password_email" />
