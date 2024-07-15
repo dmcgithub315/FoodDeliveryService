@@ -1,10 +1,15 @@
 package com.example.food_delivery_service.activity.common;
 
+import static com.example.food_delivery_service.util.SharedPrefUtils.TOKEN;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,6 +24,7 @@ import com.example.food_delivery_service.Adapter.PopularItemsAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.admin.CreateNewProduct;
 import com.example.food_delivery_service.activity.admin.ViewListFood;
+import com.example.food_delivery_service.activity.user.ProfileActivity;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.ApiResponse;
@@ -26,6 +32,7 @@ import com.example.food_delivery_service.api.model.dto.category.CategoryResponse
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.entity.Category;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.util.SharedPrefUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +44,6 @@ import retrofit2.Response;
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView categoriesRecyclerView;
     private ListCategoryAdapter categoryAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,23 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        LinearLayout lnProfile = findViewById(R.id.lnProfile);
+        lnProfile.setOnClickListener(v -> {
+            navigateToNextScreen();
+        });
+    }
+
+    private void navigateToNextScreen() {
+        String tokenUser = SharedPrefUtils.getStringData(this, TOKEN);
+        boolean isLogged = !tokenUser.isEmpty();
+        Intent intent;
+        if (isLogged) {
+            intent = new Intent(this, ProfileActivity.class);
+        } else {
+            intent = new Intent(this, LoginActivity.class);
+        }
+        startActivity(intent);
     }
 
     private void fetchCategories() {
@@ -115,8 +138,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void getAllProducts(PopularItemsAdapter adapter) {
-
-
         ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
         Call<ApiResponse<ProductsResponse>> call = apiService.getAllProducts2(1, 4);
 
