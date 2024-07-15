@@ -172,6 +172,8 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,159 +182,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <LinearLayout
-                    android:baselineAligned="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="76dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/rounded_border">
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="99dp"
-                            android:layout_height="94dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.812"
-                             />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="79dp"
-                            android:layout_height="48dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:gravity="center"
-                            android:text="Appetizer"
-                            android:textColor="@color/black_black"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView4"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="76dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/rounded_border">
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="99dp"
-                            android:layout_height="110dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.75"
-                            tools:layout_editor_absoluteX="71dp"
-                            tools:layout_editor_absoluteY="-24dp" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="79dp"
-                            android:layout_height="48dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:gravity="center"
-                            android:text="Main Dish"
-                            android:textColor="@color/black_black"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView6"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
 
                 <LinearLayout
-                    android:baselineAligned="false"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="10dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="76dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/rounded_border">
 
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="99dp"
-                            android:layout_height="110dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.75"
-                             />
 
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="79dp"
-                            android:layout_height="48dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:gravity="center"
-                            android:text="Dessert"
-                            android:textColor="@color/black_black"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                            app:layout_constraintTop_toTopOf="parent" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/categoriesRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="76dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/rounded_border">
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="99dp"
-                            android:layout_height="94dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.812"
-                             />
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="79dp"
-                            android:layout_height="48dp"
-                            android:fontFamily="@font/roboto_bold"
-                            android:gravity="center"
-                            android:text="Side Dish"
-                            android:textColor="@color/black_black"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView3"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -371,7 +237,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/viewPopular"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:clipToPadding="false"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp" />

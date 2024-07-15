@@ -16,6 +16,11 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="edit_profile">Edit Profile</string>
+    <string-array name="sort_options">
+        <item>Name</item>
+        <item>Price</item>
+        <item>Quantity </item>
+    </string-array>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

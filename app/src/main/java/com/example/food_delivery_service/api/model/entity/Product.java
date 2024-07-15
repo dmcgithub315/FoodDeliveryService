@@ -21,6 +21,9 @@ public class Product {
     @SerializedName("price")
     private int price;
 
+    @SerializedName("quantity")
+    private int quantity;
+
     @SerializedName("image")
     private String image;
 
@@ -29,4 +32,7 @@ public class Product {
 
     @SerializedName("updated_at")
     private String updatedAt;
+
+    @SerializedName("category")
+    private Category category;
 }

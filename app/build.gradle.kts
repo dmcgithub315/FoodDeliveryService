@@ -78,4 +78,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.github.bumptech.glide:glide:4.13.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
+    implementation ("com.google.android.material:material:1.7.0")
+    implementation("io.github.chaosleung:pinview:1.4.4")
+    implementation("com.hbb20:ccp:2.6.0")
+
+
+
 }

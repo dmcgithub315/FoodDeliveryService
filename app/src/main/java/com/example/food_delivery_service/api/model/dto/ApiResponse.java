@@ -17,4 +17,7 @@ public class ApiResponse<T> {
 
     @SerializedName("data")
     private T data;
+
+    @SerializedName("paging")
+    private Paging paging;
 }
