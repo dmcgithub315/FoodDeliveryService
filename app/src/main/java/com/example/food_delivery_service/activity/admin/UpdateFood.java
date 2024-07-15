@@ -83,6 +83,7 @@ public class UpdateFood extends AppCompatActivity {
         buttonSave = findViewById(R.id.button4);
         buttonChoose = findViewById(R.id.button3);
         imageViewFood = findViewById(R.id.imageView2);
+        loadImage();
 
 
 
@@ -113,8 +114,20 @@ public class UpdateFood extends AppCompatActivity {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
-            Glide.with(this).load(imageUri).into(imageViewFood);
             photoUri = imageUri.toString();
+            try {
+                getContentResolver().takePersistableUriPermission(imageUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+            Glide.with(this).load(imageUri).into(imageViewFood);
+        }
+    }
+
+    private void loadImage() {
+        if (photoUri != null) {
+            Uri imageUri = Uri.parse(photoUri);
+            Glide.with(this).load(imageUri).into(imageViewFood);
         }
     }
 

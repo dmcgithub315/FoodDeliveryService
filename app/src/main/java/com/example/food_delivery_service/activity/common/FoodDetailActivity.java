@@ -1,5 +1,7 @@
 package com.example.food_delivery_service.activity.common;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
@@ -28,6 +32,7 @@ public class FoodDetailActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +46,14 @@ public class FoodDetailActivity extends AppCompatActivity {
         iv_minus = findViewById(R.id.iv_minus);
         iv_add = findViewById(R.id.iv_add);
         FoodDetail_Img = findViewById(R.id.FoodDetail_Img);
-
         FoodDetail_addToCartBtn = findViewById(R.id.FoodDetail_addToCartBtn);
-        FoodDetail_addToCartBtn.setOnClickListener(v -> {
-        });
 
-        int foodId = SelectedProduct.selectedProductId;
+        int foodId = getIntent().getIntExtra("PRODUCT_ID", -1);
         if (foodId != -1) {
             fetchProductDetails(foodId);
         } else {
             Toast.makeText(this, "Invalid product ID", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
 
     private void fetchProductDetails(int productId) {
@@ -68,7 +67,7 @@ public class FoodDetailActivity extends AppCompatActivity {
                     Product product = response.body().getData();
                     productCategoryId = product.getCategory().getId();
                     FoodDetail_TitleTxt.setText(product.getName());
-                    FoodDetail_PriceTxt.setText(String.valueOf(product.getPrice()));
+                    FoodDetail_PriceTxt.setText(String.valueOf(product.getPrice()) + " VND");
                     FoodDetail_Desc.setText(product.getDescription());
 
                     Glide.with(FoodDetailActivity.this)
