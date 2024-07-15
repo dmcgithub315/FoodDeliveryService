@@ -13,7 +13,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="544dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,10 +26,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="68dp"
 
+                android:text="Title"
                 android:textAlignment="center"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:text="Title"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/FoodDetail_PriceTxt"
@@ -58,7 +58,7 @@
                     android:id="@+id/iv_minus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/remove_24px"/>
+                    android:src="@drawable/remove_24px" />
 
                 <TextView
                     android:id="@+id/numberOrderTxt"
@@ -76,7 +76,7 @@
                     android:id="@+id/iv_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/add_24px"/>
+                    android:src="@drawable/add_24px" />
 
             </LinearLayout>
 
