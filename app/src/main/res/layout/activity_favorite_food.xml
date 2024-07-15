@@ -154,7 +154,7 @@
                     android:src="@drawable/person_24dp" />
 
                 <TextView
-                    android:id="@+id/Home_ProfileTv"
+                    android:id="@+id/activity_home__Tv_profile_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
