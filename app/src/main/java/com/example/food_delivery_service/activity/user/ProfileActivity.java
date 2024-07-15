@@ -84,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
         request.setFirstName(firstNameField.getText().toString());
         request.setLastName(lastNameField.getText().toString());
         request.setUsername(userNameField.getText().toString());
+        request.setPhone(phoneField.getText().toString());
         request.setId(user.getId());
 
         ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
@@ -99,6 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
                         user.setFirstName(request.getFirstName());
                         user.setLastName(request.getLastName());
                         user.setUsername(request.getUsername());
+                        user.setPhone(request.getPhone());
                         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
                         String jsonString = gson.toJson(user);
                         SharedPrefUtils.saveData(ProfileActivity.this, USER, jsonString);
