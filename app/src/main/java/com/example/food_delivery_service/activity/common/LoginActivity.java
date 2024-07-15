@@ -1,12 +1,15 @@
 package com.example.food_delivery_service.activity.common;
 
+import static com.example.food_delivery_service.util.SharedPrefUtils.TOKEN;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.food_delivery_service.R;
@@ -15,7 +18,11 @@ import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginResponse;
+import com.example.food_delivery_service.api.model.entity.User;
 import com.example.food_delivery_service.auth.SessionManager;
+import com.example.food_delivery_service.util.SharedPrefUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,46 +38,47 @@ public class LoginActivity extends AppCompatActivity {
         // Get the email and password from the input fields
         EditText emailField = findViewById(R.id.email_login);
         EditText passwordField = findViewById(R.id.password);
-        Button signInButton = findViewById(R.id.login_user_main_buttonLogin);
+        Button signInButton = findViewById(R.id.btnLogin);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailField.getText().toString();
-                String password = passwordField.getText().toString();
+        signInButton.setOnClickListener(v -> {
+            String email = emailField.getText().toString();
+            String password = passwordField.getText().toString();
 
-                // Create a new login request
-                LoginRequest loginRequest = new LoginRequest(email, password);
+            // Create a new login request
+            LoginRequest loginRequest = new LoginRequest(email, password);
 
-                // Get the API service and call the login method
-                ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
-                Call<LoginResponse> call = apiService.login(loginRequest);
+            // Get the API service and call the login method
+            ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
+            Call<LoginResponse> call = apiService.login(loginRequest);
 
-                call.enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if (response.isSuccessful()) {
-                            LoginResponse loginResponse = response.body();
-                            if (loginResponse != null) {
-                                String token = loginResponse.getToken();
-                                SessionManager sessionManager = new SessionManager(LoginActivity.this);
-                                sessionManager.saveAuthToken(token);
-                            }
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    if (response.isSuccessful()) {
+                        LoginResponse loginResponse = response.body();
+                        if (loginResponse != null) {
+                            String token = loginResponse.getToken();
+                            User user = loginResponse.getUser();
 
-                            Intent intent = new Intent(LoginActivity.this, ViewListFood.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
+                            SharedPrefUtils.saveData(LoginActivity.this, TOKEN, token);
+                            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
+                            String jsonString = gson.toJson(user);
+                            SharedPrefUtils.saveData(LoginActivity.this, "user", jsonString);
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        // Network error
-                        Toast.makeText(LoginActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, ViewListFood.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
                     }
-                });
-            }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
+                    // Network error
+                    Toast.makeText(LoginActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }

@@ -81,6 +81,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.7.0")
     implementation("io.github.chaosleung:pinview:1.4.4")
     implementation("com.hbb20:ccp:2.6.0")
+    implementation("com.google.android.material:material:1.8.0")
 
 
 

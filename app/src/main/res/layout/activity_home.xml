@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,8 +32,8 @@
 
                     android:text="Hi Customer"
                     android:textColor="#FF6347"
-                    android:textStyle="bold"
                     android:textSize="20sp"
+                    android:textStyle="bold"
 
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -48,8 +48,8 @@
                     android:textColor="@color/black_black"
                     android:textSize="15sp"
 
-                    app:layout_constraintStart_toStartOf="@+id/home_deliverCustomerNameTv"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/home_deliverCustomerNameTv"
                     app:layout_constraintTop_toBottomOf="@+id/home_deliverCustomerNameTv" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -57,8 +57,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="14dp"
                 android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginEnd="14dp"
                 android:background="@drawable/grey_background"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -173,7 +173,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -189,8 +188,6 @@
                     android:layout_marginTop="10dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
-
-
 
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -243,9 +240,6 @@
                 android:paddingEnd="24dp" />
 
 
-
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -260,17 +254,18 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvBottom"
             android:layout_width="match_parent"
-            android:layout_margin="10dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
+            android:layout_margin="10dp"
             android:background="@drawable/home_background">
 
             <LinearLayout
-                android:baselineAligned="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -350,13 +345,14 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lnProfile"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/Home_ProfileIc"
+                        android:id="@+id/ivProfile"
                         android:layout_width="22dp"
                         android:layout_height="22dp"
                         android:layout_gravity="center"
@@ -364,18 +360,16 @@
                         android:src="@drawable/person_24dp" />
 
                     <TextView
-                        android:id="@+id/Home_ProfileTv"
+                        android:id="@+id/tvProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Cart"
+                        android:text="Profile"
                         android:textAlignment="center"
                         android:textColor="@color/white_white"
                         android:textSize="10sp" />
 
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
