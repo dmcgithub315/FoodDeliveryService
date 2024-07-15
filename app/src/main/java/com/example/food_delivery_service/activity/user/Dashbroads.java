@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import com.example.food_delivery_service.Adapter.ListFoodAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.admin.UpdateFood;
 import com.example.food_delivery_service.activity.admin.ViewListFood;
-import com.example.food_delivery_service.adapter.ListFoodAdapter;
 import com.example.food_delivery_service.api.model.entity.Product;
 
 public class Dashbroads extends AppCompatActivity {
@@ -56,6 +56,16 @@ public class Dashbroads extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(int position) {
+            }
+
+            @Override
+            public void onImageClick(int foodId) {
+
+            }
+
+            @Override
+            public void onCategoryClick(int categoryId) {
+
             }
 
         });

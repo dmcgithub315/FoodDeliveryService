@@ -1,15 +1,10 @@
-package com.example.food_delivery_service.activities;
+package com.example.food_delivery_service.activity.user;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CartActivity extends AppCompatActivity {
