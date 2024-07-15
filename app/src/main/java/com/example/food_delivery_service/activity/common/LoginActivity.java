@@ -1,12 +1,14 @@
 package com.example.food_delivery_service.activity.common;
 
 import static com.example.food_delivery_service.util.SharedPrefUtils.TOKEN;
+import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         EditText emailField = findViewById(R.id.email_login);
         EditText passwordField = findViewById(R.id.password);
         Button signInButton = findViewById(R.id.btnLogin);
+        TextView btnRegister = findViewById(R.id.textView2);
+
+        btnRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        });
 
         signInButton.setOnClickListener(v -> {
             String email = emailField.getText().toString();
@@ -63,10 +71,11 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPrefUtils.saveData(LoginActivity.this, TOKEN, token);
                             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
                             String jsonString = gson.toJson(user);
-                            SharedPrefUtils.saveData(LoginActivity.this, "user", jsonString);
+                            SharedPrefUtils.saveData(LoginActivity.this, USER, jsonString);
                         }
 
                         Intent intent = new Intent(LoginActivity.this, ViewListFood.class);
+                        finish();
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();

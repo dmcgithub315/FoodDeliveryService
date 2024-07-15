@@ -8,6 +8,7 @@ import com.example.food_delivery_service.api.model.dto.product.UpdateProductRequ
 import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginResponse;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.api.model.entity.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -19,6 +20,12 @@ import retrofit2.http.Query;
 public interface ApiService {
     @POST("login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
+
+    @POST("register")
+    Call<LoginResponse> register(@Body User request);
+
+    @POST("profile/update")
+    Call<LoginResponse> update(@Body User request);
 
     @GET("get-all")
     Call<ApiResponse<ProductsResponse>> getAllProducts(
@@ -39,8 +46,6 @@ public interface ApiService {
 
     @POST("product/create")
     Call<ApiResponse<Product>> createProduct(@Body CreateProductRequest request);
-
-
 
     @GET("product/search")
     Call<ApiResponse<ProductsResponse>> searchProducts(@Query("k") String name);

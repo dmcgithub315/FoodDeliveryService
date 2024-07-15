@@ -7,6 +7,7 @@ public class SharedPrefUtils {
     private static final String PREF_APP = "pref_app";
     //key
     public static final String TOKEN = "token";
+    public static final String USER = "user";
 
     private SharedPrefUtils() {
         throw new UnsupportedOperationException(
@@ -90,5 +91,11 @@ public class SharedPrefUtils {
 
     static public void saveData(SharedPreferences.Editor editor) {
         editor.apply();
+    }
+
+    static public void clearData(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear().apply();
     }
 }
