@@ -1,7 +1,10 @@
 package com.example.food_delivery_service.activity.admin;
 
+import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
+
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,11 +26,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.food_delivery_service.Adapter.ListFoodAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.common.FoodDetailActivity;
+import com.example.food_delivery_service.activity.common.LoginActivity;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.util.SharedPrefUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +53,7 @@ public class ViewListFood extends AppCompatActivity {
     private String sort = null;
     private static Integer cid = null;
     private static int count = 0;
+    SharedPreferences sharedPreferences;
 
 
 
@@ -231,6 +238,7 @@ public class ViewListFood extends AppCompatActivity {
                     if (currentPage == 1) {
                         productAdapter.clearData();
                     }
+
                     productAdapter.updateData(products);
                     currentPage = response.body().getPaging().getCurrent_page();
                     totalPage = response.body().getPaging().getTotal_page();

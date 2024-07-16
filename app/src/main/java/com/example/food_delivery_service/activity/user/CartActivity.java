@@ -99,7 +99,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
         cart_checkoutTv.setOnClickListener(v -> {
             String cartJson = sharedPreferences.getString("cart", "");
             String userString = SharedPrefUtils.getStringData(this, USER);
-            if(userString == null) {
+            if(userString == null || userString.isEmpty()) {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 return;

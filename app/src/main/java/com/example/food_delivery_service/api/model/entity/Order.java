@@ -29,5 +29,8 @@ public class Order {
     @SerializedName("updated_at")
     private String updatedAt;
 
+    @SerializedName("address")
+    private String address;
+
     private List<OrderDetail> orderDetails;
 }
