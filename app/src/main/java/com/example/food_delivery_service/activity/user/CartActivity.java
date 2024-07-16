@@ -5,9 +5,11 @@ import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,12 +51,19 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
     private TextView Cart_TitleTxt, Cart_PriceTxt, Cart_Desc, numberOrderTxt, cart_totalTv, cart_deliveryNumTv, cart_checkoutTv;
     private ScrollView scrollView;
 
+    SharedPreferences sharedPreferences;
+
+
+
     private double tax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+        sharedPreferences = getSharedPreferences("CartPreferences", MODE_PRIVATE);
+
 
         recyclerView = findViewById(R.id.cart_itemListRV);
         Cart_PriceTxt = findViewById(R.id.cart_priceNumTv);
@@ -88,7 +97,6 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
         });
 
         cart_checkoutTv.setOnClickListener(v -> {
-            SharedPreferences sharedPreferences = getSharedPreferences("CartPreferences", MODE_PRIVATE);
             String cartJson = sharedPreferences.getString("cart", "");
             String userString = SharedPrefUtils.getStringData(this, USER);
             if(userString == null) {
@@ -113,7 +121,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
                 Order order = new Order();
                 order.setUserId(user.getId());
                 order.setTotalPrice(total);
-                order.setStatus(false);
+                order.setStatus(0);
                 order.setPaymentMethod("COD");
 
                 List<OrderDetail> orderDetails = new ArrayList<>();
@@ -127,45 +135,59 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
 
                 saveOrderAndDetails(order, orderDetails);
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.remove("cart");
-                editor.apply();
 
-                Intent intent = new Intent(this, OrderHistoryActivity.class);
-                startActivity(intent);
             }
         });
     }
 
     private void saveOrderAndDetails(Order order, List<OrderDetail> orderDetails) {
-//        ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
-//        OrderCreateRequest request = new OrderCreateRequest();
-//        request.setOrder(order);
-//        request.setOrderDetails(orderDetails);
-//
-//        Call<ApiResponse> call = apiService.createOrder(request);
-//
-//        call.enqueue(new Callback<ApiResponse>() {
-//            @Override
-//            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
-//                if (response.isSuccessful()) {
-//                    ApiResponse orderCreateResponse = response.body();
-//                    if (orderCreateResponse != null) {
-//                        System.out.println("Order created: " + orderCreateResponse.getOrder().getId());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call<OrderCreateResponse> call, @NonNull Throwable t) {
-//                t.printStackTrace();
-//            }
-//        });
+        ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
+        OrderCreateRequest request = new OrderCreateRequest();
+        request.setUser_id(order.getUserId());
+        request.setTotal_price(order.getTotalPrice());
+        request.setStatus(0);
+        request.setPayment_method("COD");
+
+        Gson gson = new Gson();
+        String json = gson.toJson(orderDetails);
+        request.setOrder_details(json);
+        Log.d("OrderCreateRequest", json);
+
+        Call<ApiResponse<Order>> call = apiService.createOrder(request);
+
+
+
+        call.enqueue(new Callback<ApiResponse<Order>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<ApiResponse<Order>> call, @NonNull Response<ApiResponse<Order>> response) {
+                if (response.isSuccessful()) {
+                    ApiResponse orderCreateResponse = response.body();
+                    if (orderCreateResponse.getResult() != null) {
+                        Toast.makeText(CartActivity.this, "Create order successfully", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("cart");
+                        editor.apply();
+                        Intent intent = new Intent(CartActivity.this, OrderHistoryActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                } else {
+                    Toast.makeText(CartActivity.this, "Create order fail", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<Order>> call, Throwable t) {
+                Toast.makeText(CartActivity.this, "Create order fail", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+        );
+
+
 
     }
 
@@ -218,6 +240,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
         cart_deliveryNumTv.setText(formatPrice(deliveryFee));
     }
 
+    @NonNull
     private String formatPrice(int price) {
         NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
         return numberFormat.format(price) + " VND";

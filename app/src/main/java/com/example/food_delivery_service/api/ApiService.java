@@ -62,7 +62,7 @@ public interface ApiService {
     Call<ApiResponse<Product>> updateProduct(@Path("id") int id, @Body UpdateProductRequest request);
 
     @POST("order/create")
-    Call<ApiResponse> createOrder(@Body OrderCreateRequest request);
+    Call<ApiResponse<Order>> createOrder(@Body OrderCreateRequest request);
 
     @GET("order/list/{uid}")
     Call<ApiResponse<Order>> getOrder(@Path("uid") int id);
