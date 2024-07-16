@@ -26,8 +26,6 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
     private List<Product> productList;
     private OnItemClickListener listener;
 
-    // Kiểm tra và yêu cầu quyền truy cập tệp
-
     public void clearData() {
         productList.clear();
         notifyDataSetChanged();
@@ -116,7 +114,6 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
     @Override
     public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_food_item, parent, false);
-        // Pass productList to the constructor of FoodViewHolder
         return new FoodViewHolder(v, listener, productList);
     }
 
