@@ -22,13 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Name"
-
             android:textSize="18sp" />
     </LinearLayout>
-
-
-
-
 
     <ImageView
         android:id="@+id/cartItem_image"
