@@ -179,4 +179,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getAllProducts2(PopularItemsAdapter adapter) {
+        ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
+        Call<ApiResponse<ProductsResponse>> call = apiService.getAllProducts2(1, 4);
+
+        call.enqueue(new Callback<ApiResponse<ProductsResponse>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<ProductsResponse>> call, Response<ApiResponse<ProductsResponse>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Product> products = response.body().getData().getProducts();
+                    adapter.updateData(products);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<ProductsResponse>> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Failed to get products", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
