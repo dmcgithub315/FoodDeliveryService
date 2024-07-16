@@ -6,6 +6,7 @@
   
     <color name="black_black">#FF000000</color>
     <color name="white_white">#FFFFFFFF</color>
+    <color name="gold">#FFD700</color>
 
     <color name="pff_red_deep">#982121</color>
     <color name="pff_red_orange">#ff611d</color>

@@ -30,19 +30,19 @@
                         android:id="@+id/constraintLayout"
                         android:layout_width="match_parent"
                         android:layout_height="360dp"
-                        android:background="@drawable/background_top"
+                        android:background="@drawable/login_background"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/User_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="-23dp"
                         android:text="User Name"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
+                        android:textColor="@color/black_black"
+                        android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.498"
@@ -50,22 +50,23 @@
                         app:layout_constraintTop_toBottomOf="@id/lmao" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="212dp"
-                        android:text="NotARealMail@gmail.com"
-                        android:textColor="#ffffff"
+                        android:layout_marginTop="21dp"
+                        android:text="Mail@gmail.com"
+                        android:textColor="@color/black_black"
                         android:textSize="18sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                        app:layout_constraintTop_toBottomOf="@id/User_Name" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lmao"
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        app:layout_constraintBottom_toTopOf="@id/textView3"
+                        app:layout_constraintBottom_toTopOf="@id/User_Name"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -83,7 +84,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/circleimages"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:scaleType="centerCrop"
@@ -109,7 +110,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView2"
+                        app:layout_constraintTop_toBottomOf="@id/email"
                         app:layout_constraintVertical_bias="0.0">
 
                         <LinearLayout
@@ -261,7 +262,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Male"
                                 android:textAlignment="viewEnd"
                                 android:textColor="#585858"
                                 android:textSize="18sp" />
@@ -300,7 +300,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="01/01/2001"
                                 android:textAlignment="viewEnd"
                                 android:textColor="#585858"
                                 android:textSize="18sp" />
@@ -338,7 +337,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Somewhere, Anywhere"
                                 android:textAlignment="viewEnd"
                                 android:textColor="#585858"
                                 android:textSize="18sp" />
@@ -375,7 +373,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="0912345678"
                                 android:textAlignment="viewEnd"
                                 android:textColor="#585858"
                                 android:textSize="18sp" />
@@ -391,14 +388,15 @@
                         android:layout_margin="24dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="46dp"
-                        android:background="@drawable/orange_button"
+                        android:layout_marginBottom="80dp"
+                        android:background="@drawable/only_user_logout"
                         android:text="Edit Profile"
-                        android:textColor="@color/white_white"
+                        android:textColor="@color/black_black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

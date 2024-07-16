@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/alegreya_sans_sc_thin</item>
         <item>@font/be_vietnam_thin</item>
         <item>@font/noto_serif_bold</item>
         <item>@font/roboto_bold</item>
