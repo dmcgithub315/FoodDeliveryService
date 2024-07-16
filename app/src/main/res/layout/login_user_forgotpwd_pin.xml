@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_user_forgotpwd_pin_submit">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/activity_home__Tv_food_option1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Didn't receive your code? " />

@@ -8,4 +8,15 @@
     <string name="delete_food">Delete</string>
     <string name="setting">Setting</string>
     <string name="edit_profile">Edit Profile</string>
+
+    <string name="activity_home__deliver_to">Deliver To</string>
+    <string name="activity_home__your_location">Your Location</string>
+    <string name="activity_home__pick_your_meal">What shall we deliver?</string>
+    <string name="activity_home__Tv_food_option1">Burger</string>
+    <string name="activity_home__Tv_food_option2">Chicken</string>
+    <string name="activity_home__Tv_food_option3">Rice</string>
+    <string name="activity_home__Tv_food_option4">Dessert</string>
+    <string name="activity_home__Tv_popular">Popular Choices</string>
+    <string name="activity_home__Tv_seeall">See All (0)</string>
+    <string name="activity_fd__Tv_title">Title</string>
 </resources>

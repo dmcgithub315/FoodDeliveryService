@@ -5,43 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/signup_back_button"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
-        android:padding="5dp"
-        android:src="@drawable/general_back_icon"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/icon_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/general_back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Favourite Food"
+            android:textColor="@color/black_black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/favorite_scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/favorite_titleTv"
+            <SearchView
+                android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-
-                android:text="Favorite Food"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/search_bkg"
+                android:closeIcon="@drawable/baseline_close_24"
+                android:focusable="false"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search ...."
+                android:searchHintIcon="@null"
+                android:searchIcon="@drawable/baseline_search_24" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favorite_itemListRV"
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_below="@+id/search"
+                android:layout_margin="12dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"/>
 
         </LinearLayout>
 
@@ -49,18 +73,18 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
         android:layout_gravity="bottom"
         android:background="@drawable/home_background"
-        app:layout_constraintBottom_toBottomOf="@+id/favorite_scrollView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:baselineAligned="false">
+            android:layout_marginBottom="10dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -81,36 +105,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+
+                    android:textStyle="bold"
                     android:text="Home"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/Home_heartIc"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/baseline_favorite_24" />
-
-                <TextView
-                    android:id="@+id/favourite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Favorite"
-                    android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -132,10 +133,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+
+                    android:textStyle="bold"
                     android:text="Cart"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -154,18 +157,20 @@
                     android:src="@drawable/person_24dp" />
 
                 <TextView
-                    android:id="@+id/Home_ProfileTv"
+                    android:id="@+id/activity_home__Tv_profile_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Cart"
+                    android:textStyle="bold"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp"
+                    android:text="Profile"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
