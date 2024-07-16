@@ -296,7 +296,7 @@
                         android:textStyle="bold"
                         android:text="Home"
                         android:textAlignment="center"
-                        android:textColor="@color/black_black"
+                        android:textColor="@color/white_white"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -350,7 +350,7 @@
                         android:textStyle="bold"
                         android:text="Cart"
                         android:textAlignment="center"
-                        android:textColor="@color/black_black"
+                        android:textColor="@color/white_white"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -377,7 +377,7 @@
                         android:layout_marginTop="4dp"
                         android:textStyle="bold"
                         android:textAlignment="center"
-                        android:textColor="@color/black_black"
+                        android:textColor="@color/white_white"
                         android:textSize="14sp"
                         android:text="Profile"/>
 
