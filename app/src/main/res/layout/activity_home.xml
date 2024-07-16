@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,57 +23,86 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/home_deliverCustomerNameTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:id="@+id/home_activity_LL_topbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
 
-                    android:text="Hi Customer"
-                    android:textColor="#FF6347"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    <TextView
+                        android:id="@+id/home_deliverCustomerNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_weight="2"
 
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        android:text="@string/activity_home__deliver_to"
+                        android:textAllCaps="true"
+                        android:textColor="@color/pff_green_mediumaquamarine"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_weight="1"
+
+                        android:src="@drawable/favorite_24px"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_weight="1"
+
+                        android:src="@drawable/history_24px"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/home_deliverLocationTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
 
-                    android:text="Your Location:"
+                    android:text="@string/activity_home__your_location"
                     android:textColor="@color/black_black"
                     android:textSize="15sp"
+                    android:textStyle="bold"
 
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/home_deliverCustomerNameTv"
-                    app:layout_constraintTop_toBottomOf="@+id/home_deliverCustomerNameTv" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/home_activity_LL_topbar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="14dp"
                 android:layout_marginTop="14dp"
+                android:layout_marginStart="14dp"
                 android:layout_marginEnd="14dp"
                 android:background="@drawable/grey_background"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="46dp">
+                tools:layout_editor_absoluteY="48dp">
 
                 <EditText
                     android:id="@+id/home_searchEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#00ffffff"
-                    android:drawableStart="@drawable/search_icon"
+                    android:drawableStart="@drawable/search_24px"
                     android:drawablePadding="8dp"
 
                     android:ems="10"
-                    android:hint="Pick your meal....."
+                    android:hint="@string/activity_home__pick_your_meal"
                     android:inputType="text"
                     android:padding="8dp"
                     android:textColor="@color/black_black"
@@ -81,25 +110,11 @@
                     android:textSize="16sp"
 
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/home_searchBtn"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/home_searchBtn"
-                    android:layout_width="85dp"
-                    android:layout_height="42dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="2dp"
-                    android:background="@drawable/orange_button"
-                    android:gravity="center"
-                    android:text="Search"
-                    android:textColor="@color/white_white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.235" />
+                    tools:ignore="TouchTargetSizeCheck" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -172,7 +187,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -181,21 +195,129 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_marginTop="10dp"
                     android:baselineAligned="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/rounded_border">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/categoriesRecyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp" />
+                        <TextView
+                            android:id="@+id/activity_home__Tv_food_option1"
+                            android:layout_width="79dp"
+                            android:layout_height="48dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
 
+                            android:text="@string/activity_home__Tv_food_option1"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/rounded_border">
+
+                        <TextView
+                            android:id="@+id/activity_home__Tv_food_option2"
+                            android:layout_width="79dp"
+                            android:layout_height="48dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+
+                            android:text="@string/activity_home__Tv_food_option2"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:baselineAligned="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/rounded_border">
+
+                        <TextView
+                            android:id="@+id/activity_home__Tv_food_option3"
+                            android:layout_width="79dp"
+                            android:layout_height="48dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+
+                            android:text="@string/activity_home__Tv_food_option3"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="76dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/rounded_border">
+
+                        <TextView
+                            android:id="@+id/activity_home__Tv_food_option4"
+                            android:layout_width="79dp"
+                            android:layout_height="48dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+
+                            android:text="@string/activity_home__Tv_food_option4"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_black"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -209,22 +331,22 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/activity_home__Tv_popular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:text="Popular"
+                    android:text="@string/activity_home__Tv_popular"
                     android:textColor="@color/black_black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/activity_home__Tv_seeall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="See All"
+                    android:text="@string/activity_home__Tv_seeall"
                     android:textAlignment="viewEnd"
                     android:textColor="#fe6900"
                     android:textStyle="bold" />
@@ -234,12 +356,10 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/viewPopular"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="240dp"
                 android:clipToPadding="false"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp" />
-
-
         </LinearLayout>
     </ScrollView>
 
@@ -254,18 +374,17 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvBottom"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
-            android:layout_margin="10dp"
             android:background="@drawable/home_background">
 
             <LinearLayout
+                android:baselineAligned="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:baselineAligned="false">
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -286,36 +405,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+
+                        android:textStyle="bold"
                         android:text="Home"
                         android:textAlignment="center"
-                        android:textColor="@color/white_white"
-                        android:textSize="10sp" />
+                        android:textColor="@color/black_black"
+                        android:textSize="14sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/Home_heartIc"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/baseline_favorite_24" />
-
-                    <TextView
-                        android:id="@+id/favourite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Favorite"
-                        android:textAlignment="center"
-                        android:textColor="@color/white_white"
-                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -337,22 +433,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+
+                        android:textStyle="bold"
                         android:text="Cart"
                         android:textAlignment="center"
-                        android:textColor="@color/white_white"
-                        android:textSize="10sp" />
+                        android:textColor="@color/black_black"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lnProfile"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/ivProfile"
+                        android:id="@+id/Home_ProfileIc"
                         android:layout_width="22dp"
                         android:layout_height="22dp"
                         android:layout_gravity="center"
@@ -360,16 +457,19 @@
                         android:src="@drawable/person_24dp" />
 
                     <TextView
-                        android:id="@+id/tvProfile"
+                        android:id="@+id/activity_home__Tv_profile_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Profile"
+                        android:textStyle="bold"
                         android:textAlignment="center"
-                        android:textColor="@color/white_white"
-                        android:textSize="10sp" />
+                        android:textColor="@color/black_black"
+                        android:textSize="14sp"
+                        android:text="Profile"/>
 
                 </LinearLayout>
+
+
 
             </LinearLayout>
 

@@ -7,29 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".activity.admin.HomeAdmin">
 
-    <SearchView
-        android:id="@+id/search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/search_bkg"
-        android:closeIcon="@drawable/baseline_close_24"
-        android:focusable="false"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search ...."
-        android:searchHintIcon="@null"
-        android:searchIcon="@drawable/baseline_search_24"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/movieRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/admin_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/layout_list_func_admin" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/admin_nav_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/white_white"
         app:menu="@menu/admin_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
