@@ -4,6 +4,7 @@ import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.category.CategoryResponse;
 import com.example.food_delivery_service.api.model.dto.order.OrderCreateRequest;
 import com.example.food_delivery_service.api.model.dto.product.CreateProductRequest;
+import com.example.food_delivery_service.api.model.dto.product.OrdersResponse;
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.dto.product.UpdateProductRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
@@ -65,7 +66,7 @@ public interface ApiService {
     Call<ApiResponse<Order>> createOrder(@Body OrderCreateRequest request);
 
     @GET("order/list/{uid}")
-    Call<ApiResponse<Order>> getOrder(@Path("uid") int id);
+    Call<ApiResponse<OrdersResponse>> getOrder(@Path("uid") int id);
 
 
 
