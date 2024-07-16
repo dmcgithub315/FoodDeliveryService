@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         // Get the email and password from the input fields
         EditText emailField = findViewById(R.id.email_login);
         EditText passwordField = findViewById(R.id.password);
-        Button signInButton = findViewById(R.id.btnLogin);
+        Button signInButton = findViewById(R.id.login_user_main_buttonLogin);
         TextView btnRegister = findViewById(R.id.textView2);
 
         btnRegister.setOnClickListener(v -> {

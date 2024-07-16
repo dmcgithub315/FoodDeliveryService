@@ -56,6 +56,12 @@
             android:name=".activity.common.RegisterActivity"
             android:exported="true">
 
+
+        </activity>
+
+        <activity
+            android:name=".activity.user.CartActivity"
+            android:exported="true">
         </activity>
 
         <activity

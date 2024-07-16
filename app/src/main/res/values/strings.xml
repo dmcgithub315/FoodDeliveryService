@@ -8,6 +8,9 @@
     <string name="delete_food">Delete</string>
     <string name="setting">Setting</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
 
     <string name="activity_home__deliver_to">Deliver To</string>
     <string name="activity_home__your_location">Your Location</string>
@@ -18,4 +21,12 @@
     <string name="activity_home__Tv_food_option4">Dessert</string>
     <string name="activity_home__Tv_popular">Popular Choices</string>
     <string name="activity_home__Tv_seeall">See All (0)</string>
+    <string name="forget_password_detail">Please provide the email registered to your account.</string>
+
+
+    <string-array name="sort_options">
+        <item>Name</item>
+        <item>Price</item>
+        <item>Quantity </item>
+    </string-array>
 </resources>

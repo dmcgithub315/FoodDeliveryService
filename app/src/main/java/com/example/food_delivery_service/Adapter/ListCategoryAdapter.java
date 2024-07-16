@@ -35,8 +35,6 @@ public class ListCategoryAdapter extends RecyclerView.Adapter<ListCategoryAdapte
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         Category category = categories.get(position);
         holder.categoryNameTextView.setText(category.getName());
-        Glide.with(context).load(R.drawable.food1)
-                .into(holder.categoryImageView);
 
 
     }
@@ -53,7 +51,6 @@ public class ListCategoryAdapter extends RecyclerView.Adapter<ListCategoryAdapte
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryNameTextView = itemView.findViewById(R.id.categoryNameTextView);
-            categoryImageView = itemView.findViewById(R.id.categoryImageView);
         }
     }
 }
