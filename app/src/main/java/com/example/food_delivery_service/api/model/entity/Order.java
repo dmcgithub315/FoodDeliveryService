@@ -32,5 +32,6 @@ public class Order {
     @SerializedName("address")
     private String address;
 
+    @SerializedName("order_details")
     private List<OrderDetail> orderDetails;
 }

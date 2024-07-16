@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.activity.common.HomeActivity;
 import com.example.food_delivery_service.activity.common.LoginActivity;
 import com.example.food_delivery_service.activity.common.RegisterActivity;
 import com.example.food_delivery_service.api.ApiClient;
@@ -32,7 +34,6 @@ import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
     private EditText emailField;
-    private EditText phoneField;
     private EditText firstNameField;
     private EditText lastNameField;
     private EditText userNameField;
@@ -57,7 +58,6 @@ public class ProfileActivity extends AppCompatActivity {
         firstNameField = findViewById(R.id.tieFirstName);
         lastNameField = findViewById(R.id.tieLastName);
         userNameField = findViewById(R.id.tieUseName);
-        phoneField = findViewById(R.id.tiePhone);
         btnUpdate = findViewById(R.id.btnUpdate);
         ivAvatar = findViewById(R.id.ivAvatar);
         btnLogout = findViewById(R.id.btnLogout);
@@ -65,7 +65,6 @@ public class ProfileActivity extends AppCompatActivity {
         lastNameField.setText(user.getLastName());
         firstNameField.setText(user.getFirstName());
         emailField.setText(user.getEmail());
-        phoneField.setText(user.getPhone());
         userNameField.setText(user.getUsername());
         Glide.with(this).load(user.getAvatar()).into(ivAvatar);
 
@@ -76,6 +75,24 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        LinearLayout lnHome = findViewById(R.id.lnhome);
+        lnHome.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout lnProfile = findViewById(R.id.lnProfile);
+        lnProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout lnCart = findViewById(R.id.lnCart);
+        lnCart.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, CartActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void updateUser(User user) {
@@ -84,7 +101,6 @@ public class ProfileActivity extends AppCompatActivity {
         request.setFirstName(firstNameField.getText().toString());
         request.setLastName(lastNameField.getText().toString());
         request.setUsername(userNameField.getText().toString());
-        request.setPhone(phoneField.getText().toString());
         request.setId(user.getId());
 
         ApiService apiService = ApiClient.getApiClient().create(ApiService.class);

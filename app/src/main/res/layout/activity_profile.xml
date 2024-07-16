@@ -124,29 +124,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone"
-            android:textColorHint="@color/black_black"
-            app:boxStrokeColor="@color/black_black"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black_black"
-            app:hintTextColor="@color/black_black"
-            app:startIconDrawable="@android:drawable/stat_sys_phone_call"
-            app:startIconTint="@color/black_black">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiePhone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black_black"
-                android:textCursorDrawable="@null" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivAvatar"
@@ -202,6 +180,7 @@
             android:baselineAligned="false">
 
             <LinearLayout
+                android:id="@+id/lnhome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"

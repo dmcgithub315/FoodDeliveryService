@@ -1,10 +1,12 @@
 package com.example.food_delivery_service.activity.common;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,9 @@ import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.activity.user.CartActivity;
+import com.example.food_delivery_service.activity.user.OrderHistoryActivity;
+import com.example.food_delivery_service.activity.user.ProfileActivity;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.SelectedProduct;
@@ -76,6 +81,24 @@ public class FoodDetailActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(v -> {
             int finalQuantity = Integer.parseInt(numberOrderTxt.getText().toString());
             saveToCart(product2, finalQuantity);
+        });
+
+        LinearLayout lnHome = findViewById(R.id.lnhome);
+        lnHome.setOnClickListener(v -> {
+            Intent intent = new Intent(FoodDetailActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout lnProfile = findViewById(R.id.lnProfile);
+        lnProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(FoodDetailActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
+
+        LinearLayout lnCart = findViewById(R.id.lnCart);
+        lnCart.setOnClickListener(v -> {
+            Intent intent = new Intent(FoodDetailActivity.this, CartActivity.class);
+            startActivity(intent);
         });
     }
 
