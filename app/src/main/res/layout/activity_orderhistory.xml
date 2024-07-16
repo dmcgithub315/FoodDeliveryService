@@ -7,17 +7,19 @@
 
     <ImageView
         android:id="@+id/signup_back_button"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
         android:padding="5dp"
         android:src="@drawable/general_back_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/history_scrollView"
+        android:id="@+id/favorite_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="85dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -31,17 +33,21 @@
                 android:id="@+id/history_titleTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
 
                 android:text="Order History"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textColor="@color/black_black"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/history_itemListRV"
+                android:id="@+id/favorite_itemListRV"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"/>
 
         </LinearLayout>
 
@@ -49,18 +55,18 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
         android:layout_gravity="bottom"
         android:background="@drawable/home_background"
-        app:layout_constraintBottom_toBottomOf="@+id/history_scrollView"
+        app:layout_constraintBottom_toBottomOf="@+id/favorite_scrollView"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:baselineAligned="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:baselineAligned="false">
+            android:layout_marginBottom="10dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -81,36 +87,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+
+                    android:textStyle="bold"
                     android:text="Home"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/Home_heartIc"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/baseline_favorite_24" />
-
-                <TextView
-                    android:id="@+id/favourite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Favorite"
-                    android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -132,10 +115,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+
+                    android:textStyle="bold"
                     android:text="Cart"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -158,14 +143,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Cart"
+                    android:textStyle="bold"
                     android:textAlignment="center"
-                    android:textColor="@color/white_white"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black_black"
+                    android:textSize="14sp"
+                    android:text="Profile"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

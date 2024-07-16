@@ -248,6 +248,7 @@
                 android:paddingEnd="24dp" />
 
         </LinearLayout>
+
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -382,8 +383,6 @@
                         android:text="Profile"/>
 
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
