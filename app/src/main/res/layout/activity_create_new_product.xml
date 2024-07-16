@@ -42,7 +42,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/activity_update_food_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="16dp"
@@ -50,7 +50,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/activity_update_food_saveBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -64,7 +64,7 @@
                 android:text="ID" />
 
             <EditText
-                android:id="@+id/editTextText3"
+                android:id="@+id/activity_update_food__editText_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID"
@@ -80,7 +80,7 @@
                 android:text="Name" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/activity_update_food__editText_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
@@ -96,7 +96,7 @@
                 android:text="Category" />
 
             <EditText
-                android:id="@+id/editTextText4"
+                android:id="@+id/activity_update_food__editText_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Category"
@@ -112,7 +112,7 @@
                 android:text="Price" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/activity_update_food__editText_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Price"
@@ -128,7 +128,7 @@
                 android:text="Detail" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/activity_update_food__editText_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Detail"
@@ -145,7 +145,7 @@
                 android:text="Create At" />
 
             <EditText
-                android:id="@+id/editTextText5"
+                android:id="@+id/activity_update_food__editText_created"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -161,7 +161,7 @@
                 android:text="Update At" />
 
             <EditText
-                android:id="@+id/editTextText6"
+                android:id="@+id/activity_update_food__editText_updated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

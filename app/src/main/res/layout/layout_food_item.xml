@@ -10,6 +10,7 @@
         android:padding="15dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_weight="1"
         app:srcCompat="@drawable/food1" />
 
     <TextView
@@ -17,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="0"
+        android:layout_weight="2"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="20dp"
         android:text="Food 1"
@@ -25,22 +26,22 @@
 
     <ImageView
         android:id="@+id/edit_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginEnd="50dp"
-        android:layout_weight="0"
+        android:layout_weight="1"
         android:clickable="true"
         android:contentDescription="@string/edit_food"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        android:src="@drawable/edit_24px" />
 
     <ImageView
         android:id="@+id/delete_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_weight="0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
         android:layout_gravity="center"
         android:contentDescription="@string/delete_food"
-        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:src="@drawable/delete_24px"
         android:clickable="true"/>
 </LinearLayout>

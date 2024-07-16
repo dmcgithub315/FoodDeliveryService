@@ -18,4 +18,5 @@
     <string name="activity_home__Tv_food_option4">Dessert</string>
     <string name="activity_home__Tv_popular">Popular Choices</string>
     <string name="activity_home__Tv_seeall">See All (0)</string>
+    <string name="activity_fd__Tv_title">Title</string>
 </resources>
