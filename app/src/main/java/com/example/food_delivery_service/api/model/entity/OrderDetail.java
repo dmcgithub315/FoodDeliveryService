@@ -26,4 +26,6 @@ public class OrderDetail {
 
     @SerializedName("updated_at")
     private String updatedAt;
+
+
 }

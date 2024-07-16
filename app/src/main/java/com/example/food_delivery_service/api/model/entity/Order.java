@@ -18,7 +18,7 @@ public class Order {
     private int totalPrice;
 
     @SerializedName("status")
-    private boolean status;
+    private int status;
 
     @SerializedName("payment_method")
     private String paymentMethod;
