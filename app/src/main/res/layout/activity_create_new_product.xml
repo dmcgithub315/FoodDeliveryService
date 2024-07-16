@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateNewProduct"
+    tools:context=".activity.admin.CreateNewProduct"
     android:padding="16dp">
 
     <RelativeLayout
@@ -95,12 +95,29 @@
                 android:layout_marginTop="16dp"
                 android:text="Category" />
 
+
             <EditText
                 android:id="@+id/activity_update_food__editText_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Category"
                 android:inputType="text"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Quantity" />
+
+            <EditText
+                android:id="@+id/editTextNumber3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantity"
+                android:inputType="number"
                 android:textSize="20sp"
                 android:layout_marginTop="8dp"/>
 

@@ -1,5 +1,7 @@
 package com.example.food_delivery_service.activity.user;
 
+import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,20 +18,35 @@ import com.example.food_delivery_service.Adapter.CartItemAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.common.FoodDetailActivity;
 import com.example.food_delivery_service.activity.common.HomeActivity;
+import com.example.food_delivery_service.activity.common.LoginActivity;
+import com.example.food_delivery_service.api.ApiClient;
+import com.example.food_delivery_service.api.ApiService;
+import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.CartItem;
+import com.example.food_delivery_service.api.model.dto.order.OrderCreateRequest;
+import com.example.food_delivery_service.api.model.entity.Order;
+import com.example.food_delivery_service.api.model.entity.OrderDetail;
+import com.example.food_delivery_service.api.model.entity.User;
+import com.example.food_delivery_service.util.SharedPrefUtils;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CartActivity extends AppCompatActivity implements CartItemAdapter.OnItemRemovedListener, CartItemAdapter.OnItemClickListener {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
 
-    private TextView Cart_TitleTxt, Cart_PriceTxt, Cart_Desc, numberOrderTxt, cart_totalTv, cart_deliveryNumTv;
+    private TextView Cart_TitleTxt, Cart_PriceTxt, Cart_Desc, numberOrderTxt, cart_totalTv, cart_deliveryNumTv, cart_checkoutTv;
     private ScrollView scrollView;
 
     private double tax;
@@ -43,6 +61,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
         cart_totalTv = findViewById(R.id.cart_totalNumTv);
         cart_deliveryNumTv = findViewById(R.id.cart_deliveryNumTv);
         scrollView = findViewById(R.id.cart_scrollView);
+        cart_checkoutTv = findViewById(R.id.cart_checkoutTv);
 
         if (recyclerView != null) {
             recyclerView.setHasFixedSize(true);
@@ -67,6 +86,87 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.O
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         });
+
+        cart_checkoutTv.setOnClickListener(v -> {
+            SharedPreferences sharedPreferences = getSharedPreferences("CartPreferences", MODE_PRIVATE);
+            String cartJson = sharedPreferences.getString("cart", "");
+            String userString = SharedPrefUtils.getStringData(this, USER);
+            if(userString == null) {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return;
+            }
+            Gson gsonU = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
+            User user = gsonU.fromJson(userString, User.class);
+
+            String totalText = cart_totalTv.getText().toString();
+            totalText = totalText.replaceAll("[^\\d]", "");
+            int total = Integer.parseInt(totalText);
+
+
+
+            if (!cartJson.isEmpty()) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<List<CartItem>>() {}.getType();
+                List<CartItem> cartItems = gson.fromJson(cartJson, type);
+
+                Order order = new Order();
+                order.setUserId(user.getId());
+                order.setTotalPrice(total);
+                order.setStatus(false);
+                order.setPaymentMethod("COD");
+
+                List<OrderDetail> orderDetails = new ArrayList<>();
+                for (CartItem item : cartItems) {
+                    OrderDetail detail = new OrderDetail();
+                    detail.setProductId(item.getProduct().getId());
+                    detail.setQuantity(item.getQuantity());
+                    detail.setPrice(item.getProduct().getPrice());
+                    orderDetails.add(detail);
+                }
+
+                saveOrderAndDetails(order, orderDetails);
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("cart");
+                editor.apply();
+
+                Intent intent = new Intent(this, OrderHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void saveOrderAndDetails(Order order, List<OrderDetail> orderDetails) {
+//        ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
+//        OrderCreateRequest request = new OrderCreateRequest();
+//        request.setOrder(order);
+//        request.setOrderDetails(orderDetails);
+//
+//        Call<ApiResponse> call = apiService.createOrder(request);
+//
+//        call.enqueue(new Callback<ApiResponse>() {
+//            @Override
+//            public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {
+//                if (response.isSuccessful()) {
+//                    ApiResponse orderCreateResponse = response.body();
+//                    if (orderCreateResponse != null) {
+//                        System.out.println("Order created: " + orderCreateResponse.getOrder().getId());
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ApiResponse> call, Throwable t) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull Call<OrderCreateResponse> call, @NonNull Throwable t) {
+//                t.printStackTrace();
+//            }
+//        });
+
     }
 
 

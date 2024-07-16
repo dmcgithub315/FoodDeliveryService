@@ -2,11 +2,13 @@ package com.example.food_delivery_service.api;
 
 import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.category.CategoryResponse;
+import com.example.food_delivery_service.api.model.dto.order.OrderCreateRequest;
 import com.example.food_delivery_service.api.model.dto.product.CreateProductRequest;
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.dto.product.UpdateProductRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginRequest;
 import com.example.food_delivery_service.api.model.dto.user.LoginResponse;
+import com.example.food_delivery_service.api.model.entity.Order;
 import com.example.food_delivery_service.api.model.entity.Product;
 import com.example.food_delivery_service.api.model.entity.User;
 
@@ -58,5 +60,13 @@ public interface ApiService {
 
     @POST("product/update/{id}")
     Call<ApiResponse<Product>> updateProduct(@Path("id") int id, @Body UpdateProductRequest request);
+
+    @POST("order/create")
+    Call<ApiResponse> createOrder(@Body OrderCreateRequest request);
+
+    @GET("order/list/{uid}")
+    Call<ApiResponse<Order>> getOrder(@Path("uid") int id);
+
+
 
 }
