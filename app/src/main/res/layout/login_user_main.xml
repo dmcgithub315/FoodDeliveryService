@@ -143,6 +143,7 @@
         android:textAllCaps="true"
         android:textColor="@color/white_white"
         android:background="@drawable/background_black"
+        android:textColor="@color/black_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -161,7 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_user_main_buttonLogin">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/activity_home__Tv_food_option1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account? "

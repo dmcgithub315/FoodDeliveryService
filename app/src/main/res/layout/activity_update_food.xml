@@ -16,18 +16,21 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/icon_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="14dp"
-            android:src="@drawable/baseline_arrow_back_24"/>
+            android:padding="5dp"
+            android:src="@drawable/general_back_icon" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update Food"
+            android:text="Update Product"
             android:layout_centerInParent="true"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textColor="@color/black_black"
+            android:textSize="28sp"/>
+
     </RelativeLayout>
 
     <ScrollView
@@ -42,18 +45,28 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/activity_update_food_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="20dp"
                 android:scaleType="centerCrop"
                 tools:srcCompat="@tools:sample/avatars" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+            <TextView
+                android:id="@+id/activity_update_food_chooseBtn"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/background_button"
+
+                android:textColor="@color/black_black"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 android:text="Choose" />
 
             <TextView
@@ -64,7 +77,7 @@
                 android:text="ID" />
 
             <EditText
-                android:id="@+id/editTextText3"
+                android:id="@+id/activity_update_food__editText_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID"
@@ -80,7 +93,7 @@
                 android:text="Name" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/activity_update_food__editText_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
@@ -96,7 +109,7 @@
                 android:text="Category" />
 
             <EditText
-                android:id="@+id/editTextText4"
+                android:id="@+id/activity_update_food__editText_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Category"
@@ -112,7 +125,7 @@
                 android:text="Price" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/activity_update_food__editText_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Price"
@@ -128,7 +141,7 @@
                 android:text="Detail" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/activity_update_food__editText_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Detail"
@@ -145,11 +158,11 @@
                 android:text="Create At" />
 
             <EditText
-                android:id="@+id/editTextText5"
+                android:id="@+id/activity_update_food__editText_created"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="Create At"
+                android:hint="Created At"
                 android:inputType="text"
                 android:textSize="20sp" />
 
@@ -161,19 +174,29 @@
                 android:text="Update At" />
 
             <EditText
-                android:id="@+id/editTextText6"
+                android:id="@+id/activity_update_food__editText_updated"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="Update At"
+                android:hint="Updated At"
                 android:inputType="text"
                 android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+            <TextView
+                android:id="@+id/activity_update_food_saveBtn"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/background_button"
+
+                android:textColor="@color/black_black"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 android:text="Save" />
         </LinearLayout>
     </ScrollView>
