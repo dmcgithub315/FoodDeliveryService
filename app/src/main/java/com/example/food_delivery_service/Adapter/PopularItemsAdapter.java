@@ -14,12 +14,19 @@ import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.api.model.entity.Product;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class PopularItemsAdapter extends RecyclerView.Adapter<PopularItemsAdapter.ViewHolder> {
 
     private List<Product> productList;
     private Context context;
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public PopularItemsAdapter(Context context, List<Product> productList) {
         this.context = context;
@@ -37,7 +44,9 @@ public class PopularItemsAdapter extends RecyclerView.Adapter<PopularItemsAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.textViewTitle.setText(product.getName());
-        holder.textViewPrice.setText(String.valueOf(product.getPrice()));
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
+        String formattedPrice = numberFormat.format(product.getPrice()) + " VND";
+        holder.textViewPrice.setText(formattedPrice);
         String imageUrl = product.getImage();
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Glide.with(context).load(imageUrl)
@@ -47,6 +56,11 @@ public class PopularItemsAdapter extends RecyclerView.Adapter<PopularItemsAdapte
         } else {
             Glide.with(context).load(R.drawable.food1).into(holder.imageView);
         }
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(product.getId());
+            }
+        });
     }
 
     @Override
@@ -74,6 +88,6 @@ public class PopularItemsAdapter extends RecyclerView.Adapter<PopularItemsAdapte
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Product product);
+        void onItemClick(int productId);
     }
 }

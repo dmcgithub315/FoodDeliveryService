@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +25,7 @@ import com.example.food_delivery_service.Adapter.PopularItemsAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.admin.CreateNewProduct;
 import com.example.food_delivery_service.activity.admin.ViewListFood;
+import com.example.food_delivery_service.activity.user.CartActivity;
 import com.example.food_delivery_service.activity.user.ProfileActivity;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
@@ -50,17 +52,28 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         categoriesRecyclerView = findViewById(R.id.categoriesRecyclerView);
         categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         fetchCategories();
 
         RecyclerView recyclerViewPopular = findViewById(R.id.viewPopular);
-        recyclerViewPopular.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewPopular.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         PopularItemsAdapter popularItemsAdapter = new PopularItemsAdapter(this, new ArrayList<>());
         recyclerViewPopular.setAdapter(popularItemsAdapter);
 
+        popularItemsAdapter.setOnItemClickListener(new PopularItemsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int productId) {
+                Intent intent = new Intent(HomeActivity.this, FoodDetailActivity.class);
+                intent.putExtra("PRODUCT_ID", productId);
+                startActivity(intent);
+            }
+        });
+
+
         getAllProducts(popularItemsAdapter);
-        TextView seeAllTextView = findViewById(R.id.textView15);
+        TextView seeAllTextView = findViewById(R.id.activity_home__Tv_seeall);
         seeAllTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,10 +82,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+
         LinearLayout lnProfile = findViewById(R.id.lnProfile);
         lnProfile.setOnClickListener(v -> {
             navigateToNextScreen();
         });
+
+        LinearLayout lnCart = findViewById(R.id.lnCart);
+        lnCart.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
+        });
+
+
     }
 
     private void navigateToNextScreen() {

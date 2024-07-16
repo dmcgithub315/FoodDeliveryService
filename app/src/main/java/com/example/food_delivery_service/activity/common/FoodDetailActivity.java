@@ -25,8 +25,10 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +53,11 @@ public class FoodDetailActivity extends AppCompatActivity {
         ImageView ivMinus = findViewById(R.id.iv_minus);
         TextView numberOrderTxt = findViewById(R.id.numberOrderTxt);
         TextView addToCartBtn = findViewById(R.id.FoodDetail_addToCartBtn);
+        FoodDetail_TitleTxt = findViewById(R.id.FoodDetail_TitleTxt);
+        FoodDetail_PriceTxt = findViewById(R.id.FoodDetail_PriceTxt);
+        FoodDetail_Desc = findViewById(R.id.FoodDetail_Desc);
+        FoodDetail_Img = findViewById(R.id.FoodDetail_Img);
+
 
         fetchProductDetails(getIntent().getIntExtra("PRODUCT_ID", -1));
 
@@ -115,7 +122,9 @@ public class FoodDetailActivity extends AppCompatActivity {
                     Product product = response.body().getData();
                     productCategoryId = product.getCategory().getId();
                     FoodDetail_TitleTxt.setText(product.getName());
-                    FoodDetail_PriceTxt.setText(String.valueOf(product.getPrice()) + " VND");
+                    NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
+                    String formattedPrice = numberFormat.format(product.getPrice()) + " VND";
+                    FoodDetail_PriceTxt.setText(formattedPrice);
                     FoodDetail_Desc.setText(product.getDescription());
 
                     Glide.with(FoodDetailActivity.this)
