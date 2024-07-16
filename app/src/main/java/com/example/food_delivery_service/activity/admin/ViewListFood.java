@@ -32,7 +32,10 @@ import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.ApiResponse;
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.api.model.entity.User;
 import com.example.food_delivery_service.util.SharedPrefUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +57,7 @@ public class ViewListFood extends AppCompatActivity {
     private static Integer cid = null;
     private static int count = 0;
     SharedPreferences sharedPreferences;
+    int role;
 
 
 
@@ -62,9 +66,20 @@ public class ViewListFood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_list_food);
 
+        String userString = SharedPrefUtils.getStringData(this, USER);
+        if(userString == null || userString.isEmpty()) {
+           role = 0;
+        } else {
+        Gson gsonU = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
+        User user = gsonU.fromJson(userString, User.class);
+        role = user.getRole();
+        }
+
+
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        productAdapter = new ListFoodAdapter(new ArrayList<>());
+        productAdapter = new ListFoodAdapter(new ArrayList<>(), role);
         recyclerView.setAdapter(productAdapter);
 
         searchView = findViewById(R.id.search);
@@ -73,11 +88,18 @@ public class ViewListFood extends AppCompatActivity {
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
+        if (role == 1) {
+
         Button btnCreate = findViewById(R.id.btnCreate);
         btnCreate.setOnClickListener(v -> {
             Intent intent = new Intent(ViewListFood.this, CreateNewProduct.class);
             startActivity(intent);
         });
+        } else {
+            Button btnCreate = findViewById(R.id.btnCreate);
+            btnCreate.setVisibility(View.GONE);
+
+        }
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

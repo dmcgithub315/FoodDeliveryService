@@ -71,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(v -> updateUser(user));
         btnLogout.setOnClickListener(v -> {
             SharedPrefUtils.clearData(this);
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();
         });

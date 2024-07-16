@@ -1,6 +1,7 @@
 package com.example.food_delivery_service.activity.common;
 
 import static com.example.food_delivery_service.util.SharedPrefUtils.TOKEN;
+import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import com.example.food_delivery_service.Adapter.ListCategoryAdapter;
 import com.example.food_delivery_service.Adapter.PopularItemsAdapter;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.admin.CreateNewProduct;
+import com.example.food_delivery_service.activity.admin.ListFunctionAdmin;
 import com.example.food_delivery_service.activity.admin.ViewListFood;
 import com.example.food_delivery_service.activity.user.CartActivity;
 import com.example.food_delivery_service.activity.user.ProfileActivity;
@@ -34,7 +36,10 @@ import com.example.food_delivery_service.api.model.dto.category.CategoryResponse
 import com.example.food_delivery_service.api.model.dto.product.ProductsResponse;
 import com.example.food_delivery_service.api.model.entity.Category;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.api.model.entity.User;
 import com.example.food_delivery_service.util.SharedPrefUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +56,17 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        String userString = SharedPrefUtils.getStringData(this, USER);
+        if(userString != null && !userString.isEmpty() ) {
+            Gson gsonU = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
+            User user = gsonU.fromJson(userString, User.class);
+            if (user.getRole() == 1) {
+                Intent intent = new Intent(this, ListFunctionAdmin.class);
+                startActivity(intent);
+            }
+        }
+
 
 
         categoriesRecyclerView = findViewById(R.id.categoriesRecyclerView);

@@ -2,6 +2,7 @@ package com.example.food_delivery_service.Adapter;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.activity.common.FoodDetailActivity;
 import com.example.food_delivery_service.api.model.SelectedProduct;
 import com.example.food_delivery_service.api.model.entity.Product;
+import com.example.food_delivery_service.util.SharedPrefUtils;
+
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -25,6 +28,15 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
 
     private List<Product> productList;
     private OnItemClickListener listener;
+
+    private int userRole;
+
+    public ListFoodAdapter(List<Product> productList, int userRole) {
+        this.productList = productList;
+        this.userRole = userRole;
+    }
+
+
 
     public void clearData() {
         productList.clear();
@@ -66,6 +78,7 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
             textViewPrice = itemView.findViewById(R.id.food_price);
             textViewCategory = itemView.findViewById(R.id.food_category);
             textViewQuantity = itemView.findViewById(R.id.food_quantity);
+
             iconEdit = itemView.findViewById(R.id.edit_icon);
             iconDelete = itemView.findViewById(R.id.delete_icon);
 
@@ -131,6 +144,14 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.FoodVi
         holder.textViewPrice.setText(formattedPrice);
         holder.textViewCategory.setText(currentItem.getCategory().getName());
         holder.textViewQuantity.setText(String.valueOf(currentItem.getQuantity()));
+
+        if (userRole == 1) {
+            holder.iconEdit.setVisibility(View.VISIBLE);
+            holder.iconDelete.setVisibility(View.VISIBLE);
+        } else {
+            holder.iconEdit.setVisibility(View.GONE);
+            holder.iconDelete.setVisibility(View.GONE);
+        }
     }
 
     @Override

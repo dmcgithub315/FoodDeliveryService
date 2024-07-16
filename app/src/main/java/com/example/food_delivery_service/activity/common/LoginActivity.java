@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.food_delivery_service.R;
+import com.example.food_delivery_service.activity.admin.ListFunctionAdmin;
 import com.example.food_delivery_service.activity.admin.ViewListFood;
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
@@ -31,6 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+    int role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +69,24 @@ public class LoginActivity extends AppCompatActivity {
                         if (loginResponse != null) {
                             String token = loginResponse.getToken();
                             User user = loginResponse.getUser();
+                            role = user.getRole();
 
                             SharedPrefUtils.saveData(LoginActivity.this, TOKEN, token);
                             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
                             String jsonString = gson.toJson(user);
                             SharedPrefUtils.saveData(LoginActivity.this, USER, jsonString);
-                        }
 
-                        Intent intent = new Intent(LoginActivity.this, ViewListFood.class);
+                        }
+                        Intent intent;
+                        if (role == 1) {
+                            intent = new Intent(LoginActivity.this, ListFunctionAdmin.class);
+                        } else{
+                            intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        }
                         finish();
                         startActivity(intent);
+
+
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
                     }
