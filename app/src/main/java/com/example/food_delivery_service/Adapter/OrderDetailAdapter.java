@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.api.model.entity.OrderDetail;
 
@@ -40,6 +42,13 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         String formattedPrice = numberFormat.format(orderDetail.getPrice()) + " VND";
         holder.productPriceTextView.setText(formattedPrice);
         holder.productQuantityTextView.setText("x" + orderDetail.getQuantity());
+        holder.productNameTextView.setText(orderDetail.getProduct().getName());
+        Glide.with(context)
+                .load(orderDetail.getProduct().getImage())
+                .placeholder(R.drawable.food1)
+                .error(R.drawable.food1)
+
+                .into(holder.productImageView);
     }
 
     @Override
@@ -51,12 +60,14 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         public TextView productNameTextView;
         public TextView productPriceTextView;
         public TextView productQuantityTextView;
+        public ImageView productImageView;
 
         public OrderDetailViewHolder(@NonNull View itemView) {
             super(itemView);
             productNameTextView = itemView.findViewById(R.id.Name);
             productPriceTextView = itemView.findViewById(R.id.detail_one);
             productQuantityTextView = itemView.findViewById(R.id.detail_two);
+            productImageView = itemView.findViewById(R.id.cartItem_image);
         }
     }
 

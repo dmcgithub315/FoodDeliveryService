@@ -5,6 +5,7 @@ import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -76,6 +77,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
     }
 
     private void fetchAndDisplayOrders(int userId) {
+        Log.d("OrderHistoryActivity", "Fetching orders for user ID: " + userId);
         ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
         Call<ApiResponse<OrdersResponse>> call = apiService.getOrder(userId);
         call.enqueue(new Callback<ApiResponse<OrdersResponse>>() {

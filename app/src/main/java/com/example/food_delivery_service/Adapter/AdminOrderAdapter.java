@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.food_delivery_service.R;
 import com.example.food_delivery_service.api.model.entity.Order;
-import com.example.food_delivery_service.api.model.entity.OrderDetail;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -20,29 +19,27 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
+public class AdminOrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
     private Context context;
     private List<Order> orders;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
 
-    public OrderAdapter(Context context, List<Order> orders) {
+    public AdminOrderAdapter(Context context, List<Order> orders) {
         this.context = context;
         this.orders = orders;
     }
 
     @NonNull
     @Override
-    public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.order_item_layout, parent, false);
-        return new OrderViewHolder(view);
-
-
+    public OrderAdapter.OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_orders_admin, parent, false);
+        return new OrderAdapter.OrderViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OrderAdapter.OrderViewHolder holder, int position) {
         Order order = orders.get(position);
 
 

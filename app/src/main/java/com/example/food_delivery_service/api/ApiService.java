@@ -65,8 +65,12 @@ public interface ApiService {
     @POST("order/create")
     Call<ApiResponse<Order>> createOrder(@Body OrderCreateRequest request);
 
-    @GET("order/list/{uid}")
-    Call<ApiResponse<OrdersResponse>> getOrder(@Path("uid") int id);
+    @GET("order/list")
+    Call<ApiResponse<OrdersResponse>> getOrder(@Query("uid") int id);
+
+    @GET("order/list")
+    Call<ApiResponse<OrdersResponse>> getAllOrder();
+
 
 
 

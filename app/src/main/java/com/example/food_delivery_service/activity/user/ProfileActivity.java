@@ -41,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView ivAvatar;
     private Button btnUpdate;
     private Button btnLogout;
+    private Button btnFunction;
 
 
     @Override
@@ -83,6 +84,12 @@ public class ProfileActivity extends AppCompatActivity {
                     .setNegativeButton(android.R.string.no, null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
+        });
+
+        btnFunction = findViewById(R.id.btnFunction);
+        btnFunction.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, OrderHistoryActivity.class);
+            startActivity(intent);
         });
 
         LinearLayout lnHome = findViewById(R.id.lnhome);
