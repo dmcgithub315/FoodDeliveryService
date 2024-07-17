@@ -126,11 +126,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/background_black"
-            android:text="Forgot Password"
             android:gravity="center"
-            android:textColor="@color/white_white"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:text="Forgot Password"
+            android:textColor="@color/black_black" />
 
     </RelativeLayout>
 
@@ -141,7 +143,6 @@
         android:layout_marginTop="155dp"
         android:text="Login"
         android:textAllCaps="true"
-        android:textColor="@color/white_white"
         android:background="@drawable/background_black"
         android:textColor="@color/black_black"
         app:layout_constraintBottom_toBottomOf="parent"
