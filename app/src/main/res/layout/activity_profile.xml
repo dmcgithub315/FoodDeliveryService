@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white_white"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp">
 
@@ -140,13 +139,13 @@
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/black_black"
+        android:layout_marginTop="20dp"
         android:elevation="5dp"
         android:text="Update"
-        android:textColor="@color/white_white"
+        android:textColor="@color/black_black"
         android:transitionName="transition_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -155,10 +154,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@color/black_black"
         android:elevation="5dp"
         android:text="Logout"
-        android:textColor="@color/white_white"
+        android:textColor="@color/black_black"
         android:transitionName="transition_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

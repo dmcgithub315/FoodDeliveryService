@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
         Button signInButton = findViewById(R.id.login_user_main_buttonLogin);
         TextView btnRegister = findViewById(R.id.textView2);
 
+        ImageView ivBack = findViewById(R.id.login_back_button);
+        ivBack.setOnClickListener(v -> finish());
+
         btnRegister.setOnClickListener(v -> {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
@@ -80,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent;
                         if (role == 1) {
                             intent = new Intent(LoginActivity.this, ListFunctionAdmin.class);
-                        } else{
+                        } else {
                             intent = new Intent(LoginActivity.this, HomeActivity.class);
                         }
                         finish();
