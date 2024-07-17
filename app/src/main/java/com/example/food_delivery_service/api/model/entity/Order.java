@@ -34,4 +34,7 @@ public class Order {
 
     @SerializedName("order_details")
     private List<OrderDetail> orderDetails;
+
+    @SerializedName("user")
+    private User user;
 }
