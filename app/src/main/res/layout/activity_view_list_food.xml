@@ -27,6 +27,7 @@
             android:id="@+id/btnCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black_black"
             android:text="Create"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"

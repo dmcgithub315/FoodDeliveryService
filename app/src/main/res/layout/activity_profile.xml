@@ -79,14 +79,14 @@
             android:id="@+id/signup_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User Name"
+            android:hint="Phone"
             android:textColorHint="@color/black_black"
             app:boxStrokeColor="@color/black_black"
             app:boxStrokeWidthFocused="2dp"
             app:endIconMode="clear_text"
             app:endIconTint="@color/black_black"
             app:hintTextColor="@color/black_black"
-            app:startIconDrawable="@drawable/baseline_person_24"
+            app:startIconDrawable="@drawable/baseline_phone_24"
             app:startIconTint="@color/black_black">
 
             <com.google.android.material.textfield.TextInputEditText
