@@ -14,4 +14,22 @@ public class LoginResponse {
     private String token;
     @Nullable
     private User user;
+
+    @Nullable
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(@Nullable String token) {
+        this.token = token;
+    }
+
+    @Nullable
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(@Nullable User user) {
+        this.user = user;
+    }
 }
