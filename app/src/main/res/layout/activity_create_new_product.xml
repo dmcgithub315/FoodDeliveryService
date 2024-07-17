@@ -52,6 +52,7 @@
             <Button
                 android:id="@+id/button3"
                 android:layout_gravity="center"
+                android:textColor="@color/black_black"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
