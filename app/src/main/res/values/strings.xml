@@ -24,6 +24,7 @@
     <string name="activity_fd__Tv_title">Title</string>
     <string name="forget_password_detail">Please provide the email registered to your account.</string>
     <string name="map_description">Map showing nearby restaurants</string>
+    <string name="password">Password</string>
 
 
     <string-array name="sort_options">

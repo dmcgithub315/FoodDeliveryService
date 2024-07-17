@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -70,10 +71,18 @@ public class ProfileActivity extends AppCompatActivity {
 
         btnUpdate.setOnClickListener(v -> updateUser(user));
         btnLogout.setOnClickListener(v -> {
-            SharedPrefUtils.clearData(this);
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+            new AlertDialog.Builder(ProfileActivity.this, R.style.AlertDialogTheme)
+                    .setTitle("Logout")
+                    .setMessage("Make you sure ?")
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                        SharedPrefUtils.clearData(this);
+                        Intent intent = new Intent(this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         });
 
         LinearLayout lnHome = findViewById(R.id.lnhome);

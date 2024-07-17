@@ -3,14 +3,17 @@ package com.example.food_delivery_service.activity.common;
 import static com.example.food_delivery_service.util.SharedPrefUtils.TOKEN;
 import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.food_delivery_service.R;
@@ -57,6 +60,9 @@ public class RegisterActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         });
+
+        ImageView ivBack = findViewById(R.id.signup_back_button);
+        ivBack.setOnClickListener(v -> finish());
     }
 
     private void registerUser() {
@@ -79,16 +85,24 @@ public class RegisterActivity extends AppCompatActivity {
                     if (loginResponse != null) {
                         String token = loginResponse.getToken();
                         User user = loginResponse.getUser();
-
                         SharedPrefUtils.saveData(RegisterActivity.this, TOKEN, token);
                         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'").create();
                         String jsonString = gson.toJson(user);
                         SharedPrefUtils.saveData(RegisterActivity.this, USER, jsonString);
                     }
 
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    finish();
-                    startActivity(intent);
+                    new AlertDialog.Builder(RegisterActivity.this, R.style.AlertDialogTheme)
+                            .setTitle("Register")
+                            .setMessage("Register new user successfully!!!")
+                            .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                finish();
+                                startActivity(intent);
+                            })
+                            .setCancelable(false)
+                            .setIcon(android.R.drawable.ic_dialog_email)
+                            .show();
+
                 } else {
                     Toast.makeText(RegisterActivity.this, "Invalid login details", Toast.LENGTH_SHORT).show();
                 }
