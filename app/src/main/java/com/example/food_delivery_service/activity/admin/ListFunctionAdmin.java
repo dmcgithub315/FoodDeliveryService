@@ -42,7 +42,7 @@ public class ListFunctionAdmin extends AppCompatActivity implements BottomNaviga
                         startActivity(new Intent(ListFunctionAdmin.this, ViewListFood.class));
                         break;
                     case "List Order":
-//                        startActivity(new Intent(ListFunctionAdmin.this, ListOrderActivity.class));
+                        startActivity(new Intent(ListFunctionAdmin.this, AdminOrders.class));
                         break;
                     case "List User":
 //                        startActivity(new Intent(ListFunctionAdmin.this, ListUserActivity.class));

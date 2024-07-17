@@ -4,21 +4,16 @@ import static com.example.food_delivery_service.util.SharedPrefUtils.USER;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.food_delivery_service.Adapter.OrderAdapter;
+import com.example.food_delivery_service.Adapter.AdminOrderAdapter;
 import com.example.food_delivery_service.R;
-import com.example.food_delivery_service.activity.common.HomeActivity;
 import com.example.food_delivery_service.activity.common.LoginActivity;
-import com.example.food_delivery_service.activity.user.CartActivity;
-import com.example.food_delivery_service.activity.user.OrderHistoryActivity;
-import com.example.food_delivery_service.activity.user.ProfileActivity;
+
 import com.example.food_delivery_service.api.ApiClient;
 import com.example.food_delivery_service.api.ApiService;
 import com.example.food_delivery_service.api.model.dto.ApiResponse;
@@ -50,6 +45,8 @@ public class AdminOrders extends AppCompatActivity {
         User user = gsonU.fromJson(userString, User.class);
         fetchAndDisplayOrders();
 
+
+
     }
 
     private void fetchAndDisplayOrders() {
@@ -75,9 +72,31 @@ public class AdminOrders extends AppCompatActivity {
     }
 
     private void displayOrders(List<Order> orders) {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView2);
-        OrderAdapter adapter = new OrderAdapter(this, orders);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView3);
+        AdminOrderAdapter adapter = new AdminOrderAdapter(this, orders);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    }
+
+    public void handleOrderComplete(Order order) {
+        ApiService apiService = ApiClient.getApiClient().create(ApiService.class);
+        Call<ApiResponse<Order>> call = apiService.completeOrder(order.getId());
+        call.enqueue(new Callback<ApiResponse<Order>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<Order>> call, Response<ApiResponse<Order>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Toast.makeText(AdminOrders.this, "Order completed", Toast.LENGTH_SHORT).show();
+                    fetchAndDisplayOrders();
+                } else {
+                    Toast.makeText(AdminOrders.this, "Failed to complete order", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<Order>> call, Throwable t) {
+                Toast.makeText(AdminOrders.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

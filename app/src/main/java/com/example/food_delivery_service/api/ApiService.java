@@ -71,6 +71,9 @@ public interface ApiService {
     @GET("order/list")
     Call<ApiResponse<OrdersResponse>> getAllOrder();
 
+    @GET("order/complete/{id}")
+    Call<ApiResponse<Order>> completeOrder(@Path("id") int id);
+
 
 
 
